@@ -3,14 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/share_preferences/cache_helper.dart';
-import 'package:muhannadwebsite/shared/shared_enums.dart';
 import 'package:muhannadwebsite/shared/themes.dart';
 import 'package:muhannadwebsite/views/animatedtest.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
 
 void main() async {
-  await CacheHelper.init();
-  var isDark = CacheHelper.getIsDarkMode(key: sharedEnum.isDark.toString());
   runApp(MyApp());
 }
 
