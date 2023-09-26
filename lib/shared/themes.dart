@@ -7,10 +7,11 @@ ThemeData lightTheme=ThemeData(
     textTheme:TextTheme(
       titleLarge: GoogleFonts.sirinStencil(
           color: textLightColor,
+        fontSize: 32
       ),
       labelMedium:GoogleFonts.sirinStencil(
         color: Colors.blue,
-        fontSize: 16
+        fontSize: 20
       ),
     ),
 );
@@ -24,10 +25,11 @@ ThemeData darkTheme =ThemeData(
   textTheme:  TextTheme(
     titleLarge: GoogleFonts.sirinStencil(
      color: Colors.white,
+      fontSize: 32
     ),
     labelMedium:GoogleFonts.sirinStencil(
       color: Colors.blue,
-     fontSize: 16
+     fontSize: 16,
     ),
   ),
 );

@@ -21,4 +21,26 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     }
   }
 
+  List<bool> isHover=[
+    false,
+    false
+  ];
+
+  void changeHoverVisibility({required bool hover,required int index}){
+    isHover[index]=hover;
+    print(isHover);
+    emit (ChangeHoverVisibilityState());
+  }
+  List<bool> reSize=[false,false,false];
+  bool rowContainer=false;
+  void changeSizeOnHover({
+    required bool hover,
+    required int index
+}){
+    reSize[index]=hover;
+    rowContainer=hover;
+    print(reSize);
+    emit(ChangeSizeOnHoverState());
+  }
+
 }
