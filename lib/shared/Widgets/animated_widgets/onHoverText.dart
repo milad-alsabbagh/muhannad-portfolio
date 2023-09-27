@@ -13,7 +13,7 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<WebsiteCubit,WebsiteStates>(builder: (context,state){
-      return Portal(child: Column(
+      return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children:certificates.map((e) => Padding(
@@ -52,7 +52,7 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
 
                  ),
           )).toList()
-      ));
+      );
     }, listener: (context,state){});
   }
 }

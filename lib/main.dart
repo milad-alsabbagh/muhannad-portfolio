@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_portal/flutter_portal.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/share_preferences/cache_helper.dart';
@@ -24,12 +25,14 @@ class MyApp extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           WebsiteCubit cubit(context) => BlocProvider.of(context);
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            darkTheme: darkTheme,
-            theme: lightTheme,
-            themeMode:cubit(context).isDark?ThemeMode.dark:ThemeMode.light ,
-            home: Home()
+          return Portal(
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              darkTheme: darkTheme,
+              theme: lightTheme,
+              themeMode:cubit(context).isDark?ThemeMode.dark:ThemeMode.light ,
+              home: Home()
+            ),
           );
         },
       ),

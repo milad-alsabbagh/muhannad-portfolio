@@ -9,8 +9,7 @@ how to deal with this code to add new thing ?
 3)to add new link to your website first add website logo image to assets/images folder
 then add new object inside links list in models/link_model file
 
-4)stay tuned we are not finishing yet
+4)stay tuned we are not finished yet
 
-/*very important note : in any object that need index variable make sure that index
-goes from 0 and increase by 1 in every new object inside the list you are building
-otherwise the app may crush or give unexpected behavior */
+/*very important note : in any object that need index variable let the value as it is
+++currentIndex otherwise the app may crush or make unexpected behavior*/
