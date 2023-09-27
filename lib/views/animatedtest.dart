@@ -1,71 +1,66 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:muhannadwebsite/cubit/cubit.dart';
+import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/components.dart';
+import 'package:muhannadwebsite/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/link.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 import '../models/navigator.dart';
 
-class AnimatedNavigatorRowChat extends StatefulWidget {
-  final List<NavigatorTextButtons> navigatorButtons;
-
-  AnimatedNavigatorRowChat({
-    required this.navigatorButtons,
-  });
-
-  @override
-  _AnimatedNavigatorRowChatState createState() => _AnimatedNavigatorRowChatState();
-}
-
-class _AnimatedNavigatorRowChatState extends State<AnimatedNavigatorRowChat> {
-  bool _isLoaded = false;
-
-  @override
-  void initState() {
-    super.initState();
-    // Start the delay when the widget is initialized.
-    Future.delayed(Duration(seconds: 5), () {
-      if (mounted) {
-        setState(() {
-          _isLoaded = true;
-        });
-      }
-    });
-  }
-
+class HoverText extends StatelessWidget {
+  const HoverText({super.key,required this.index,required this.title,required this.date,required this.source, required this.summary});
+  final int index;
+  final String title;
+  final String summary;
+  final String date;
+  final String source;
+WebsiteCubit cubit(context)=>BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
-    if (!_isLoaded) {
-      return SizedBox(); // Display a loading indicator during the delay.
-    } else {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: widget.navigatorButtons
-            .map((e) => WidgetAnimator(
-          incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(),
-          child: TextButton(
-            child: Text(
-              e.text,
-              style: Theme.of(context).textTheme.labelMedium,
+    return BlocConsumer<WebsiteCubit,WebsiteStates>(builder: (context,state){
+      return Center(
+        child: MouseRegion(
+          onEnter: ((pointer)=>cubit(context).changeHoveringOnText(hover: true, index: index)),
+          onExit: ((pointer)=>cubit(context).changeHoveringOnText(hover: false, index: index)),
+          child: Column(children: [
+            Visibility(
+              visible: cubit(context).hoveringOnText[index],
+              child: Container(
+                padding:
+                EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                decoration: BoxDecoration(
+                    color: lightBackGroundColor.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(15),
+                    border:
+                    Border.all(color: Colors.black.withOpacity(0.7))),
+                child: Column(
+                  children: [
+                    Text(summary,style:Theme.of(context).textTheme.titleSmall,),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(date, style: Theme.of(context).textTheme.titleSmall),
+                        Text(source, style: Theme.of(context).textTheme.titleSmall)
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
-            onPressed: () {
-              e.onPressed();
-            },
-          ),
-        ))
-            .toList(),
-      ); // Display the second widget after the delay.
-    }
-  }
+            Text(
+              title,
+              style: Theme.of(context).textTheme.titleSmall
+            ),
 
-  @override
-  void dispose() {
-    super.dispose();
-    // Dispose of any resources if needed.
+          ]),
+        ),
+      );
+    }, listener: (context,state){});
   }
 }
-

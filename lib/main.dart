@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) {
-        return WebsiteCubit();
+        return WebsiteCubit()..fullBollLists();
       },
       child: BlocConsumer<WebsiteCubit, WebsiteStates>(
         listener: (context, state) {},
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             darkTheme: darkTheme,
             theme: lightTheme,
             themeMode:cubit(context).isDark?ThemeMode.dark:ThemeMode.light ,
-            home: Home(),
+            home: Home()
           );
         },
       ),

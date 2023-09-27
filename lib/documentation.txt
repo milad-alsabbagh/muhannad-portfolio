@@ -1,0 +1,16 @@
+this is my portfolio website documentation
+how to deal with this code to add new thing ?
+
+1)to add animated photos in home screen ?first drag and drop photo inside assets/images folder
+ then add AnimatedPhoto object inside animatedPhotoList in model/animated_photos_model
+
+2)to add certificate to my certificates ? add CertificateModel object to certificates list in model/certificate_model
+
+3)to add new link to your website first add website logo image to assets/images folder
+then add new object inside links list in models/link_model file
+
+4)stay tuned we are not finishing yet
+
+/*very important note : in any object that need index variable make sure that index
+goes from 0 and increase by 1 in every new object inside the list you are building
+otherwise the app may crush or give unexpected behavior */
