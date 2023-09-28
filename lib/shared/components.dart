@@ -4,161 +4,19 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/models/animated_photos_model.dart';
 import 'package:muhannadwebsite/shared/shared_variables.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-
-import '../models/link_model.dart';
 import '../models/navigator.dart';
 
 //animated text widget that return greeting message
-class AnimatedDelayedTextChat extends StatefulWidget {
-  final Duration duration;
-  final String text;
-
-  AnimatedDelayedTextChat({
-    required this.duration,
-    required this.text,
-  });
-
-  @override
-  _AnimatedDelayedTextChatState createState() => _AnimatedDelayedTextChatState();
-}
-
-class _AnimatedDelayedTextChatState extends State<AnimatedDelayedTextChat> {
-  bool _showText = false;
-
-  @override
-  void initState() {
-    super.initState();
-    // Start the delay when the widget is initialized.
-    Future.delayed(widget.duration, () {
-      if (mounted) {
-        setState(() {
-          _showText = true;
-        });
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (!_showText) {
-      return SizedBox(); // Display a loading indicator during the delay.
-    } else {
-      return TextAnimator(
-        widget.text,
-        textAlign: TextAlign.center,
-        maxLines: 2,
-        characterDelay: Duration(milliseconds: 180),
-        incomingEffect: WidgetTransitionEffects.incomingOffsetThenScale(),
-        style: GoogleFonts.sirinStencil(
-          fontSize: 32,
-           color: Colors.white,
-           backgroundColor: Color(0xFF6750A4).withOpacity(0.4),
-        ),
-      ); // Display the second widget after the delay.
-    }
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    // Dispose of any resources if needed.
-  }
-}
 
 
 
 
 
 //animated row that return navigation button to the pages in the website
-class AnimatedNavigatorRow extends StatefulWidget {
-  final List<NavigatorTextButtons> navigatorButtons;
-
-  AnimatedNavigatorRow({
-    required this.navigatorButtons,
-  });
-
-  @override
-  _AnimatedNavigatorRowState createState() => _AnimatedNavigatorRowState();
-}
-
-class _AnimatedNavigatorRowState extends State<AnimatedNavigatorRow> {
-  bool _isLoaded = false;
-
-  @override
-  void initState() {
-    super.initState();
-    // Start the delay when the widget is initialized.
-    Future.delayed(Duration(seconds: 5), () {
-      if (mounted) {
-        setState(() {
-          _isLoaded = true;
-        });
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (!_isLoaded) {
-      return SizedBox(width: 200,); // Display a loading indicator during the delay.
-    } else {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: widget.navigatorButtons
-            .map((e) => WidgetAnimator(
-          incomingEffect: WidgetTransitionEffects.incomingSlideInFromBottom(),
-          child: TextButton(
-            child: Text(
-              e.text,
-              // style: Theme.of(context).textTheme.labelMedium,
-            ),
-            onPressed: () {
-              e.onPressed();
-            },
-          ),
-        ))
-            .toList(),
-      ); // Display the second widget after the delay.
-    }
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    // Dispose of any resources if needed.
-  }
-}
 //********************************************
-class ModeSwithcer extends StatelessWidget {
-  const ModeSwithcer({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    WebsiteCubit cubit(context)=>BlocProvider.of(context);
-    return FlutterSwitch(
-      value: cubit(context).isDark,
-      onToggle: (bool value) {
-        cubit(context).changeThemeMode();
-        print(cubit(context).isDark);
-      },
-      width: 50,
-      height: 25,
-      padding: 1,
-      activeColor: Color(0xFF6750A4).withOpacity(0.4),
-      inactiveColor: Color(0xFF6750A4).withOpacity(0.4),
-      activeToggleColor: Colors.black,
-      inactiveToggleColor: Colors.white,
-      activeIcon: const Icon(Icons.dark_mode,color: Colors.white,),
-      inactiveIcon: const Icon(Icons.light_mode_sharp,color: Colors.amber,),
-    );
-  }
-}
 
 
 
@@ -193,7 +51,7 @@ HoverImage({required this.index});
                       color: Colors.white.withOpacity(0.2),
                     ),
                     // height: double.infinity,
-                    child:Center(
+                    child:const Center(
                       child: Text('this hover text widget ',style: TextStyle(
                           color:Colors.white
                       ),),

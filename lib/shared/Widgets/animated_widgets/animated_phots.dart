@@ -20,10 +20,16 @@ class AnimatedPhotos extends StatelessWidget {
             outgoingEffect:
             WidgetTransitionEffects.outgoingScaleUp(),
             child: SizedBox(
-              height: MediaQuery.of(context).size.height*0.4,
-              child:  Image(
-                image: AssetImage(e.imagePath),
-
+              height: 300,
+              child: AspectRatio(
+                aspectRatio: 12/16,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image(
+                    image: AssetImage(e.imagePath),
+                     fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
             )),).toList()
     );

@@ -31,41 +31,17 @@ class OnHoverCertificateText extends StatelessWidget {
                             portalFollower: Material(
                               elevation: 8,
                               child: IntrinsicWidth(
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: Colors.blueGrey.withOpacity(0.5),
-                                  ),
-
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(e.summary),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(e.source),
-                                          Spacer(),
-                                          Text(e.date)
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                child:CertificatePortalContainer(e: e,) ,
                               ),
                             ),
                             child: MouseRegion(
-                              child: Text(e.title,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w300),),
                               onEnter: ((pointer) => cubit(context)
                                   .changeHoveringOnCertificateText(
                                       hover: true, index: e.index)),
                               onExit: ((pointer) => cubit(context)
                                   .changeHoveringOnCertificateText(
                                       hover: false, index: e.index)),
+                              child: Text(e.title,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w300),),
                             ),
                           ),
                         ))
@@ -75,3 +51,36 @@ class OnHoverCertificateText extends StatelessWidget {
         listener: (context, state) {});
   }
 }
+class CertificatePortalContainer extends StatelessWidget {
+  const CertificatePortalContainer({super.key,required this.e});
+final CertificateModel e;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+      width: 150,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.blueGrey.withOpacity(0.5),
+      ),
+
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(e.summary),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: [
+              Text(e.source),
+              const Spacer(),
+              Text(e.date)
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+

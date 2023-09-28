@@ -4,8 +4,6 @@ import 'package:flutter_portal/flutter_portal.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/material_theme.dart';
-import 'package:muhannadwebsite/shared/themes.dart';
-import 'package:muhannadwebsite/views/animatedtest.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
 
 void main() async {
@@ -30,7 +28,7 @@ class MyApp extends StatelessWidget {
                 theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
                 darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
               themeMode:cubit(context).isDark?ThemeMode.dark:ThemeMode.light ,
-              home: Home()
+              home: const Home()
             ),
           );
         },

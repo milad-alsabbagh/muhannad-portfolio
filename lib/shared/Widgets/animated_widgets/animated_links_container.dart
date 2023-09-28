@@ -5,7 +5,6 @@ import 'package:muhannadwebsite/cubit/states.dart';
 
 import '../../../models/link_model.dart';
 import '../../../models_lists/links_list.dart';
-import 'links_Row.dart';
 class AnimatedLinksContainer extends StatelessWidget {
    AnimatedLinksContainer({super.key});
 WebsiteCubit cubit(context)=>BlocProvider.of(context);
@@ -34,5 +33,68 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
       },
       listener: (context,state){},
     );
+  }
+}
+
+class LinksRow extends StatelessWidget {
+  LinksRow({super.key,required this.links});
+  List<LinkModel> links;
+  WebsiteCubit cubit(context)=>BlocProvider.of(context);
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<WebsiteCubit,WebsiteStates>(
+      builder: (context,state){
+        return  Row(
+            mainAxisSize: MainAxisSize.min,
+            children: links.map((e) => Row(
+              children: [
+                ScalingLinksImage(
+                  uri: e.uri,
+                  imagePath: e.imagePath,
+                  index: e.index,
+                ),
+                SizedBox(width: 10,),
+              ],
+            )).toList()
+        );
+      },
+      listener: (context,state){},
+    );
+  }
+}
+
+class ScalingLinksImage extends StatelessWidget {
+  final int index;
+  final Uri uri;
+  final String imagePath;
+  ScalingLinksImage({required this.index,required this.imagePath,required this.uri});
+
+  WebsiteCubit cubit(context)=>BlocProvider.of(context);
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<WebsiteCubit,WebsiteStates>(builder: (context,state){
+      return  MouseRegion(
+        onEnter: ((pointer)=>
+            cubit(context).changeSizeOnHover(hover: true, index: index)
+        ),
+        onExit: ((pointer)=>
+            cubit(context).changeSizeOnHover(hover: false, index: index)
+        ),
+        child: GestureDetector(
+          onTap:(){cubit(context).launchInBrowser(uri);} ,
+          child: AnimatedContainer(
+              duration: Duration(milliseconds: 200),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                color:  Color(0xFF6750A4).withOpacity(0.4),
+              ),
+              padding: EdgeInsets.all(7),
+              width: 34,
+              height: 34,
+              transform: Matrix4.identity()..scale(cubit(context).reSize[index]?1.2 : 1.0,cubit(context).reSize[index]?1.2 : 1.0),
+              child: Image.asset(imagePath,fit: BoxFit.contain,)),
+        ),
+      );
+    }, listener: (context,state){});
   }
 }

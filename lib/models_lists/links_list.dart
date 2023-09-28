@@ -4,7 +4,7 @@ int currentIndex=-1;
 List<LinkModel> linksList =[
   LinkModel( index :++currentIndex,uri: Uri.parse('https://web.facebook.com/mohannad.alsabbagh'), imagePath: 'assets/images/facebooklogo.png'),
   LinkModel( index:++currentIndex,uri: Uri.parse('https://www.linkedin.com/in/muhannad-al-sabbagh-843b08198/'),imagePath: 'assets/images/linkedIn.png'),
-  LinkModel( index:++currentIndex,uri: Uri.parse('https://github.com/muhannad-hash'), imagePath: 'assets/images/gitHub.png'),
+  LinkModel( index:++currentIndex,uri: Uri.parse('https://github.com/muhannad-hash'), imagePath: 'assets/images/githublogo.png'),
 ];
 //make sure the index in any object is ++currentIndex
 //here you can add links to your website that appear in home page
