@@ -1,13 +1,15 @@
 this is my portfolio website documentation
 how to deal with this code to add new thing ?
 
-1)to add animated photos in home screen ?first drag and drop photo inside assets/images folder
- then add AnimatedPhoto object inside animatedPhotoList in model/animated_photos_model
+1)to add animated photos in home screen ?first drag&drop photo inside assets/images folder
+ then add AnimatedPhoto object inside animatedPhotoList in models_lists/animated_photos_list
 
-2)to add certificate to my certificates ? add CertificateModel object to certificates list in model/certificate_model
+2)to add certificate to my certificates ? add CertificateModel object to certificatesList in models_lists/certificates_list
 
-3)to add new link to your website first add website logo image to assets/images folder
+3)to add new link to your website first drag&drop website logo image to assets/images folder
 then add new object inside links list in models/link_model file
+
+4)add new skill? go to models_lists/skill_dart and add object inside skillsList
 
 4)stay tuned we are not finished yet
 

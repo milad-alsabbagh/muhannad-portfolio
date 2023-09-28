@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/models/certificate_model.dart';
-import 'package:muhannadwebsite/models/link_model.dart';
-import 'package:url_launcher/link.dart';
+import 'package:muhannadwebsite/models_lists/skill_list.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../models_lists/certificates_list.dart';
+import '../models_lists/links_list.dart';
 
 class WebsiteCubit extends Cubit<WebsiteStates> {
 
@@ -44,18 +44,27 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     print(reSize);
     emit(ChangeSizeOnHoverState());
   }
-  List<bool>hoveringOnText=[];
-  void changeHoveringOnText({required bool hover,required int index}){
-    hoveringOnText[index]=hover;
-    print(hoveringOnText);
-    emit (ChangeHoveringOnTextState());
+  List<bool>hoveringOnCertificates=[];
+  void changeHoveringOnCertificateText({required bool hover,required int index}){
+    hoveringOnCertificates[index]=hover;
+    print(hoveringOnCertificates);
+    emit (ChangeHoveringOnCertificateTextState());
   }
-  void fullBollLists(){
-    for(int i =0;i<=certificates.length-1;i++){
-      hoveringOnText.add(false);
+  List<bool>hoveringOnSkills=[];
+  void changeHoveringOnSkillText({required bool hover,required int index}){
+    hoveringOnSkills[index]=hover;
+    print(hoveringOnSkills);
+    emit (ChangeHoveringOnSkillTextState());
+  }
+  void fullBollsLists(){
+    for(int i =0;i<=certificatesList.length-1;i++){
+      hoveringOnCertificates.add(false);
     }
-    for(int i =0;i<=links.length-1;i++){
+    for(int i =0;i<=linksList.length-1;i++){
       reSize.add(false);
+    }
+    for(int i =0;i<=skillsList.length-1;i++){
+      hoveringOnSkills.add(false);
     }
     emit(FullListsState());
   }

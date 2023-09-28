@@ -6,10 +6,16 @@ import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/models/certificate_model.dart';
 import 'package:muhannadwebsite/models/link_model.dart';
+import 'package:muhannadwebsite/models_lists/skill_list.dart';
+import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
+import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_percentege_chart.dart';
 import '../models/animated_photos_model.dart';
 import '../models/navigator.dart';
+import '../models/skill_model.dart';
+import '../models_lists/animates_photos_list.dart';
+import '../models_lists/certificates_list.dart';
+import '../models_lists/links_list.dart';
 import '../shared/Widgets/animated_widgets/animated_phots.dart';
-import '../shared/Widgets/animated_widgets/links_Row.dart';
 import '../shared/Widgets/animated_widgets/onHoverText.dart';
 import '../shared/components.dart';
 import 'About.dart';
@@ -17,8 +23,6 @@ import 'faq.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
-  List<AnimatedPhoto> photos = animatedPhotos;
-  List<CertificateModel> cert=certificates;
   @override
   Widget build(BuildContext context) {
     List<NavigatorTextButtons> navigators = [
@@ -26,10 +30,6 @@ class Home extends StatelessWidget {
           context: context, screen: const About(), text: 'About'),
       NavigatorTextButtons(context: context, screen: const Faq(), text: 'FAQ'),
     ];
-    List<LinkModel>link =links;
-
-
-
     WebsiteCubit cubit(context) => BlocProvider.of(context);
     return BlocConsumer<WebsiteCubit, WebsiteStates>(
         builder: (context, state) {
@@ -71,7 +71,7 @@ class Home extends StatelessWidget {
                                 children: [
                                   AnimatedDelayedTextChat(
                                       duration: Duration(seconds: 1),
-                                      text: 'Hello World'),
+                                      text: 'Hello World!'),
                                   AnimatedDelayedTextChat(
                                       duration: const Duration(seconds: 1),
                                       text: 'Welcome to my World'),
@@ -85,23 +85,60 @@ class Home extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        OnHoverText(certificates: certificates),
-                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Color(0xFF6750A4).withOpacity(0.4),
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(15),
+                                bottomRight: Radius.circular(15)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                 vertical: 20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                 Text(
+                                  '< Courses />',
+                                  style: GoogleFonts.sirinStencil(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w300
+                                  ),
+                                 ),
+                                 SizedBox(height: 15,),
+                                OnHoverCertificateText(certificates: certificatesList),
+                                SizedBox(height: 5,),
+                                 Text(
+                                  '< Skills />',
+                                  style: GoogleFonts.sirinStencil(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w300
+                                  ),
+                                ),
+                                SizedBox(height: 10,),
+                                OnHoverSkillText(skills: skillsList),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
                         Expanded(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 30,
                               ),
                               AnimatedPhotos(
-                                animatedPhoto: photos,
+                                animatedPhoto: animatedPhotosList,
                               ),
                             ],
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Padding(
                             padding: const EdgeInsets.only(right: 30.0),
                             child: AnimatedNavigatorRow(
@@ -111,21 +148,7 @@ class Home extends StatelessWidget {
                     ),
                     // Center(child: AnimatedPhotos(animatedPhoto: animatedPhotos,)),
                     Center(
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        transform: Matrix4.identity()
-                          ..scale(cubit(context).rowContainer ? 1.2 : 1.0,
-                              cubit(context).rowContainer ? 1.2 : 1.0),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.blueAccent.withOpacity(0.2)),
-                        padding:
-                            EdgeInsets.only(left: 20, top: 10,bottom: 10,right: 10),
-                        child: LinksRow(links: link),
-                      ),
+                      child: AnimatedLinksContainer(),
                     )
                   ],
                 ),

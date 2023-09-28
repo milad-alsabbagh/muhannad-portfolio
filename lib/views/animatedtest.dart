@@ -10,57 +10,50 @@ import 'package:muhannadwebsite/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/link.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-
+import 'package:gauge_indicator/gauge_indicator.dart';
 import '../models/navigator.dart';
 
-class HoverText extends StatelessWidget {
-  const HoverText({super.key,required this.index,required this.title,required this.date,required this.source, required this.summary});
-  final int index;
-  final String title;
-  final String summary;
-  final String date;
-  final String source;
-WebsiteCubit cubit(context)=>BlocProvider.of(context);
+class AnimatedTest extends StatelessWidget {
+  // const HoverText({super.key,required this.index,required this.title,required this.date,required this.source, required this.summary});
+  // final int index;
+  // final String title;
+  // final String summary;
+  // final String date;
+  // final String source;
+  WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<WebsiteCubit,WebsiteStates>(builder: (context,state){
-      return Center(
-        child: MouseRegion(
-          onEnter: ((pointer)=>cubit(context).changeHoveringOnText(hover: true, index: index)),
-          onExit: ((pointer)=>cubit(context).changeHoveringOnText(hover: false, index: index)),
-          child: Column(children: [
-            Visibility(
-              visible: cubit(context).hoveringOnText[index],
-              child: Container(
-                padding:
-                EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                decoration: BoxDecoration(
-                    color: lightBackGroundColor.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(15),
-                    border:
-                    Border.all(color: Colors.black.withOpacity(0.7))),
-                child: Column(
-                  children: [
-                    Text(summary,style:Theme.of(context).textTheme.titleSmall,),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(date, style: Theme.of(context).textTheme.titleSmall),
-                        Text(source, style: Theme.of(context).textTheme.titleSmall)
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleSmall
-            ),
-
-          ]),
-        ),
-      );
-    }, listener: (context,state){});
+    return BlocConsumer<WebsiteCubit, WebsiteStates>(
+        builder: (context, state) {
+          return Center(
+              child: AnimatedRadialGauge(
+                  duration: const Duration(seconds: 3),
+                  curve: Curves.easeIn,
+                  builder: (context, child, value) => Center(
+                          child: Text(
+                        '${value.toInt()} %',
+                        style: const TextStyle(fontSize: 14),
+                      )),
+                  radius: 60,
+                  value: 30,
+                  axis: const GaugeAxis(
+                    min: 0,
+                    max: 100,
+                    degrees: 360,
+                    style: GaugeAxisStyle(
+                      thickness: 20,
+                      background: Color(0xFF7D5260),
+                    ),
+                    pointer: GaugePointer.needle(
+                      width: 0,
+                      height: 0,
+                      borderRadius: 16,
+                      color: Color(0xFF6750A4),
+                    ),
+                    progressBar:
+                        GaugeProgressBar.rounded(color: Color(0xFF6750A4)),
+                  )));
+        },
+        listener: (context, state) {});
   }
 }

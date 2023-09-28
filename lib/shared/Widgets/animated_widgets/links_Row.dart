@@ -55,7 +55,7 @@ class ScalingLinksImage extends StatelessWidget {
               duration: Duration(milliseconds: 200),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40),
-                color: Colors.grey,
+                 color:  Color(0xFF6750A4).withOpacity(0.4),
               ),
               padding: EdgeInsets.all(7),
               width: 34,

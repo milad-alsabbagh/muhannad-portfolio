@@ -54,8 +54,8 @@ class _AnimatedDelayedTextChatState extends State<AnimatedDelayedTextChat> {
         incomingEffect: WidgetTransitionEffects.incomingOffsetThenScale(),
         style: GoogleFonts.sirinStencil(
           fontSize: 32,
-          color: Colors.blue,
-          backgroundColor: Colors.black.withOpacity(0.5),
+           color: Colors.white,
+           backgroundColor: Color(0xFF6750A4).withOpacity(0.4),
         ),
       ); // Display the second widget after the delay.
     }
@@ -114,7 +114,7 @@ class _AnimatedNavigatorRowState extends State<AnimatedNavigatorRow> {
           child: TextButton(
             child: Text(
               e.text,
-              style: Theme.of(context).textTheme.labelMedium,
+              // style: Theme.of(context).textTheme.labelMedium,
             ),
             onPressed: () {
               e.onPressed();
@@ -150,11 +150,11 @@ class ModeSwithcer extends StatelessWidget {
       width: 50,
       height: 25,
       padding: 1,
-      activeColor: Colors.white,
-      inactiveColor: Colors.black,
-      activeToggleColor: Colors.white,
-      inactiveToggleColor: Colors.black,
-      activeIcon: const Icon(Icons.dark_mode,color: Colors.black,),
+      activeColor: Color(0xFF6750A4).withOpacity(0.4),
+      inactiveColor: Color(0xFF6750A4).withOpacity(0.4),
+      activeToggleColor: Colors.black,
+      inactiveToggleColor: Colors.white,
+      activeIcon: const Icon(Icons.dark_mode,color: Colors.white,),
       inactiveIcon: const Icon(Icons.light_mode_sharp,color: Colors.amber,),
     );
   }
