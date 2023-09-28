@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
               elevation: 0.0,
               title: AutoSizeText(
                 'Muhannad Alsabbagh',
-                style: GoogleFonts.sirinStencil(),
+                style: GoogleFonts.arizonia(),
                 minFontSize: 14,
               ),
               actions: [ModeSwitcher()],
@@ -64,7 +64,7 @@ class Home extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  '< Courses />',
+                                  '< Certificates />',
                                   style: GoogleFonts.sirinStencil(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w300),
