@@ -16,5 +16,6 @@ List<SkillModel> skillsList = [
       index: ++currentIndex,
       proficiency: 90,
       skill: 'Project Management',
+      imagePath: 'assets/images/linkedIn.png',
       yearOfXp: 5),
 ];

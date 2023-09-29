@@ -18,13 +18,13 @@ List<CertificateModel> certificatesList = [
       source: 'Coursera',
       date: 'Jul-11-2023',
       summary: 'Coming Soon',
-      title: 'AWS Cloud Practitinr Essentials',
+      title: 'AWS Cloud Practitioner Essentials',
       index: ++currentIndex),
   CertificateModel(
       source: 'Coursera',
       date: 'ON going',
       summary: 'Coming Soon',
-      title: 'Google Data Analytics Profeessional Certificte',
+      title: 'Google Data Analytics Professional Certificate',
       index: ++currentIndex),
   CertificateModel(
       source: 'Udemy',

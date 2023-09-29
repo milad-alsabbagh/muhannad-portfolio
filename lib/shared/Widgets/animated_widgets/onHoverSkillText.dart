@@ -1,8 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
-
 import '../../../cubit/cubit.dart';
 import '../../../cubit/states.dart';
 import '../../../models/skill_model.dart';
@@ -21,10 +21,9 @@ class OnHoverSkillText extends StatelessWidget {
                   .map((e) => Padding(
                     padding: const EdgeInsets.only(bottom: 15.0),
                     child: PortalTarget(
-                      fit: StackFit.loose,
                       visible: cubit(context).hoveringOnSkills[e.index],
                       anchor: const Aligned(
-                        follower: Alignment.bottomCenter,
+                        follower: Alignment.bottomLeft,
                         target: Alignment.topCenter,
                       ),
                       portalFollower: Material(
@@ -40,7 +39,20 @@ class OnHoverSkillText extends StatelessWidget {
                         onExit: ((pointer) => cubit(context)
                             .changeHoveringOnSkillText(
                             hover: false, index: e.index)),
-                        child:  Text(e.skill,style: const TextStyle(fontWeight: FontWeight.w400,fontSize: 18),),
+                        child:  Row(
+                          children: [
+                            AutoSizeText(e.skill,style: const TextStyle(fontWeight: FontWeight.w300),),
+                            SizedBox(width: 5,),
+                            e.imagePath!=null?
+                            CircleAvatar(
+                             radius: 12,
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Image.asset(e.imagePath!,fit: BoxFit.contain,),
+                              ),
+                            ):SizedBox()
+                          ],
+                        ),
 
                       ),
                     ),
@@ -65,6 +77,7 @@ final SkillModel e;
       padding: const EdgeInsets.all(15),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AnimatedRadialGauge(
               duration: const Duration(seconds: 2),
@@ -93,6 +106,7 @@ final SkillModel e;
                 progressBar:
                 const GaugeProgressBar.rounded(color: Color(0xFF6750A4)),
               )),
+          Text('hello'),
           const SizedBox(height:10 ,),
           Row(
             children: [
