@@ -1,24 +1,36 @@
 import '../models/certificate_model.dart';
 
-int currentIndex=-1;
+int currentIndex = -1;
 List<CertificateModel> certificatesList = [
   CertificateModel(
-      source: 'coursera',
-      date: '328784',
-      summary: 'thiscer oer ojeo joje ro',
-      title: 'it specialist',
+      source: 'Coursera',
+      date: 'Sep-16-2022',
+      summary: 'Coming soon',
+      title: 'Google IT Support',
       index: ++currentIndex),
   CertificateModel(
-      source: 'udemy',
-      date: '328784',
-      summary: 'this oer ojeo joje ro',
-      title: 'flutter developer',
+      source: 'Coursera',
+      date: 'Sep-13-2023',
+      summary: 'Coming Soon',
+      title: 'Introduction to Docker',
       index: ++currentIndex),
   CertificateModel(
-      source: 'google ',
-      date: '328784',
-      summary: 'this is google certificate that is beginner tutorial for ux/ui designer',
-      title: 'UX/UI Designer',
+      source: 'Coursera',
+      date: 'Jul-11-2023',
+      summary: 'Coming Soon',
+      title: 'AWS Cloud Practitinr Essentials',
+      index: ++currentIndex),
+  CertificateModel(
+      source: 'Coursera',
+      date: 'ON going',
+      summary: 'Coming Soon',
+      title: 'Google Data Analytics Profeessional Certificte',
+      index: ++currentIndex),
+  CertificateModel(
+      source: 'Udemy',
+      date: 'On going',
+      summary: 'Coming Soon',
+      title: 'Django',
       index: ++currentIndex),
 ];
 //make sure the index in any object is ++currentIndex
