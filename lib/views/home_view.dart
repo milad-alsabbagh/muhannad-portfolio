@@ -8,6 +8,7 @@ import 'package:muhannadwebsite/models_lists/skill_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_navigator.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/onHoverSkillText.dart';
+import 'package:muhannadwebsite/views/mobile_view.dart';
 import 'package:muhannadwebsite/views/desktop_view.dart';
 import '../models/navigator.dart';
 import '../models_lists/animates_photos_list.dart';
@@ -36,9 +37,7 @@ class Home extends StatelessWidget {
               return DesktopView(navigators: navigators,);
             }
             else{
-              return Scaffold(
-              backgroundColor: Colors.purple,
-              );
+              return MobileView();
             }
           }
 

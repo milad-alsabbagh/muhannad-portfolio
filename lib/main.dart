@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
+import 'package:muhannadwebsite/views/mobile_view.dart';
 import 'package:muhannadwebsite/shared/material_theme.dart';
 import 'package:muhannadwebsite/views/animatedtest.dart';
 import 'package:muhannadwebsite/views/home_view.dart';

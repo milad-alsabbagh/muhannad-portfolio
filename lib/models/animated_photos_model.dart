@@ -1,5 +1,6 @@
 class AnimatedPhoto{
   final String imagePath;
+  final String? text;
 
-  AnimatedPhoto({required this.imagePath});
+  AnimatedPhoto({this.text,required this.imagePath});
 }

@@ -5,10 +5,15 @@ import 'package:muhannadwebsite/cubit/states.dart';
 
 import '../../../models/link_model.dart';
 import '../../../models_lists/links_list.dart';
+enum Direction{
+  row,
+column
+}
 class AnimatedLinksContainer extends StatelessWidget {
-   AnimatedLinksContainer({super.key});
+   AnimatedLinksContainer({super.key,required this.direction});
 WebsiteCubit cubit(context)=>BlocProvider.of(context);
   List<LinkModel>link =linksList;
+  final Direction direction;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<WebsiteCubit,WebsiteStates>(
@@ -16,8 +21,8 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
         return AnimatedContainer(
           duration: Duration(milliseconds: 200),
           transform: Matrix4.identity()
-            ..scale(cubit(context).rowContainer ? 1.2 : 1.0,
-                cubit(context).rowContainer ? 1.2 : 1.0),
+            ..scale(cubit(context).rowContainer ? 1.1 : 1.0,
+                cubit(context).rowContainer ? 1.1 : 1.0),
           decoration: BoxDecoration(
             border: Border.all(
               color: Color(0xFF6750A4).withOpacity(0.5),
@@ -26,9 +31,9 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
             borderRadius: BorderRadius.circular(30),
             // color: Colors.blueAccent.withOpacity(0.2)
           ),
-          padding:
-          EdgeInsets.only(left: 20, top: 10,bottom: 10,right: 10),
-          child: LinksRow(links: link),
+          padding:direction==Direction.row?
+           EdgeInsets.only(left: 20, top: 10,bottom: 10,right: 10):EdgeInsets.only(left: 10, top: 20,bottom: 10,right: 10),
+          child: direction==Direction.row?LinksRow(links: link):LinksColumn(links: link),
         );
       },
       listener: (context,state){},
@@ -54,6 +59,32 @@ class LinksRow extends StatelessWidget {
                   index: e.index,
                 ),
                 SizedBox(width: 10,),
+              ],
+            )).toList()
+        );
+      },
+      listener: (context,state){},
+    );
+  }
+}
+class LinksColumn extends StatelessWidget {
+  LinksColumn({super.key,required this.links});
+  List<LinkModel> links;
+  WebsiteCubit cubit(context)=>BlocProvider.of(context);
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<WebsiteCubit,WebsiteStates>(
+      builder: (context,state){
+        return  Column(
+            mainAxisSize: MainAxisSize.min,
+            children: links.map((e) => Column(
+              children: [
+                ScalingLinksImage(
+                  uri: e.uri,
+                  imagePath: e.imagePath,
+                  index: e.index,
+                ),
+                SizedBox(height: 10,),
               ],
             )).toList()
         );

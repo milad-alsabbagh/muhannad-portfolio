@@ -6,6 +6,7 @@ import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/shared_variables.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
+import '../models/animated_photos_model.dart';
 import '../models/navigator.dart';
 
 //animated text widget that return greeting message
@@ -21,46 +22,43 @@ import '../models/navigator.dart';
 
 
 class HoverImage extends StatelessWidget {
-final int index;
-HoverImage({required this.index});
+AnimatedPhoto e;
+HoverImage({required this.e});
   WebsiteCubit cubit(context)=>BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<WebsiteCubit,WebsiteStates>(builder: (context,state){
-      return  MouseRegion(
-        onEnter: ((pointer)=>cubit(context).launchInBrowser(googleUri)),
-        onHover: ((pointer)=> cubit(context).changeHoverVisibility(hover: true,index: index-1) ),
-        onExit: ((pointer)=>cubit(context).changeHoverVisibility(hover: false,index: index-1)),
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
         child: Stack(
-          children: [
-            ClipRRect(
-                borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
-                child: Image.asset('assets/images/sun.jpg',width: 300,height: 300,fit: BoxFit.fitHeight,)),
-            Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: Visibility(
-                  visible: cubit(context).isHover[index-1],
+          alignment: AlignmentDirectional.bottomCenter,
+              children: [
+                ClipRRect(
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
+                    child: Image.asset(e.imagePath,width: 300,height: 700,fit: BoxFit.cover
+                      ,)),
+                Visibility(
+                  visible: true,
                   child: Container(
-
-                    width: double.infinity,
-                    height: 150,
+                    constraints: BoxConstraints(
+                      maxWidth: 300,
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15)),
-                      color: Colors.white.withOpacity(0.2),
+                      color:Color(0xFF6750A4).withOpacity(0.6),
                     ),
-                    // height: double.infinity,
-                    child:const Center(
-                      child: Text('this hover text widget ',style: TextStyle(
-                          color:Colors.white
-                      ),),
-                    ),
-                  ),
-                ))
+                    child:e.text!=null? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0,vertical: 20),
+                      child: Text(e.text!,style: TextStyle(
+                          color:Colors.black,
+                        fontSize: 16,
 
-          ],
-        ),
+                      ),),
+                    ):SizedBox(),
+                  ),
+                )
+              ],
+            ),
       );
     }, listener: (context,state){});
   }}
