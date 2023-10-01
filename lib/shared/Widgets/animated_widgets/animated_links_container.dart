@@ -6,8 +6,8 @@ import 'package:muhannadwebsite/cubit/states.dart';
 import '../../../models/link_model.dart';
 import '../../../models_lists/links_list.dart';
 enum Direction{
-  row,
-column
+  horizontal,
+vertical
 }
 class AnimatedLinksContainer extends StatelessWidget {
    AnimatedLinksContainer({super.key,required this.direction});
@@ -31,9 +31,9 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
             borderRadius: BorderRadius.circular(30),
             // color: Colors.blueAccent.withOpacity(0.2)
           ),
-          padding:direction==Direction.row?
+          padding:direction==Direction.horizontal?
            EdgeInsets.only(left: 20, top: 10,bottom: 10,right: 10):EdgeInsets.only(left: 10, top: 20,bottom: 10,right: 10),
-          child: direction==Direction.row?LinksRow(links: link):LinksColumn(links: link),
+          child: direction==Direction.horizontal?LinksRow(links: link):LinksColumn(links: link),
         );
       },
       listener: (context,state){},

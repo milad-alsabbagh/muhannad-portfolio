@@ -40,8 +40,7 @@ class CoursesSkillsContainer extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            OnHoverCertificateText(
-                certificates: certificatesList),
+            OnHoverCertificateText(),
             const SizedBox(
               height: 5,
             ),
@@ -59,7 +58,7 @@ class CoursesSkillsContainer extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            OnHoverSkillText(skills: skillsList),
+            OnHoverSkillText(),
           ],
         ),
       ),

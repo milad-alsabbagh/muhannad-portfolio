@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
+import 'package:muhannadwebsite/models_lists/skill_list.dart';
 import '../../../cubit/cubit.dart';
 import '../../../cubit/states.dart';
 import '../../../models/skill_model.dart';
 class OnHoverSkillText extends StatelessWidget {
-  final List<SkillModel> skills;
-  OnHoverSkillText ({required this.skills});
+ const OnHoverSkillText ({super.key});
   WebsiteCubit cubit(context)=>BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class OnHoverSkillText extends StatelessWidget {
           return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
-              children: skills
+              children: skillsList
                   .map((e) => Padding(
                     padding: const EdgeInsets.only(bottom: 15.0),
                     child: PortalTarget(

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:muhannadwebsite/models_lists/animates_photos_list.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 import '../../../models/animated_photos_model.dart';
 
 
 class AnimatedPhotos extends StatelessWidget {
-  List<AnimatedPhoto> animatedPhoto;
-  AnimatedPhotos({required this.animatedPhoto});
+
+  const AnimatedPhotos();
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class AnimatedPhotos extends StatelessWidget {
         tapToProceed: true,
         loop: true,
         transitionTime: const Duration(seconds: 5),
-        children: animatedPhoto.map((e) => WidgetAnimator(
+        children: animatedPhotosList.map((e) => WidgetAnimator(
             incomingEffect:
             WidgetTransitionEffects.incomingScaleDown(),
             outgoingEffect:

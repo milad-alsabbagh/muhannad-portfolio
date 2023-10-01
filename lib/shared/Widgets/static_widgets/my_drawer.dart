@@ -44,10 +44,10 @@ class MyDrawer extends StatelessWidget {
                   fontWeight: FontWeight.w300),
             ),
 
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: OnHoverCertificateText(certificates: certificatesList),
+                  padding:  EdgeInsets.only(left: 15.0),
+                  child: OnHoverCertificateText(),
                 )
               ],),
             ExpansionTile(title: Text(
@@ -56,10 +56,10 @@ class MyDrawer extends StatelessWidget {
                   fontSize: 22,
                   fontWeight: FontWeight.w300),
             ),
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: OnHoverSkillText(skills: skillsList),
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: OnHoverSkillText(),
                 )
               ],
             ),

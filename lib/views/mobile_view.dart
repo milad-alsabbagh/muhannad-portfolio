@@ -16,14 +16,14 @@ import '../shared/Widgets/animated_widgets/onHoverCertificatesText.dart';
 import '../shared/Widgets/animated_widgets/onHoverSkillText.dart';
 
 class MobileView extends StatelessWidget {
-  // List<String> images;
-  // CarouselPhotos({required this.images});
+  const MobileView({super.key});
+
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar:  MyAppBar(),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       body: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +48,7 @@ class MobileView extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: AnimatedLinksContainer(direction: Direction.column),
+            child: AnimatedLinksContainer(direction: Direction.vertical),
           )
         ],
       ),

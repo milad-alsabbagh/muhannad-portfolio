@@ -1,24 +1,16 @@
-import 'package:auto_size_text/auto_size_text.dart';
+
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
 
 import '../models/navigator.dart';
-import '../models_lists/animates_photos_list.dart';
-import '../models_lists/certificates_list.dart';
-import '../models_lists/skill_list.dart';
 import '../shared/Widgets/animated_widgets/animated_links_container.dart';
-import '../shared/Widgets/animated_widgets/animated_navigator.dart';
 import '../shared/Widgets/animated_widgets/animated_phots.dart';
-import '../shared/Widgets/animated_widgets/onHoverCertificatesText.dart';
-import '../shared/Widgets/animated_widgets/onHoverSkillText.dart';
 import '../shared/Widgets/static_widgets/courses_skills_container.dart';
 import '../shared/Widgets/static_widgets/cover_stack.dart';
 
 class DesktopView extends StatelessWidget {
-  DesktopView({super.key,required this.navigators});
+  DesktopView({super.key});
 
- List<NavigatorTextButtons> navigators;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +42,6 @@ class DesktopView extends StatelessWidget {
                             ),
                             Center(
                               child: AnimatedPhotos(
-                                animatedPhoto: animatedPhotosList,
                               ),
                             ),
 
@@ -58,13 +49,6 @@ class DesktopView extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      AnimatedNavigators(
-                        navigatorButtons: navigators,
-                      ),
-
 
                     ],
                   ),
@@ -74,7 +58,7 @@ class DesktopView extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 30.0,bottom: 10),
-                child: AnimatedLinksContainer(direction: Direction.row,),
+                child: AnimatedLinksContainer(direction: Direction.horizontal,),
               ),
             ],
           ),

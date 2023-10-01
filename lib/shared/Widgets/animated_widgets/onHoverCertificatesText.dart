@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
+import 'package:muhannadwebsite/models_lists/certificates_list.dart';
 
 import '../../../models/certificate_model.dart';
 
 class OnHoverCertificateText extends StatelessWidget {
-  const OnHoverCertificateText({super.key, required this.certificates});
-  final List<CertificateModel> certificates;
+  const OnHoverCertificateText({super.key,});
   WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class OnHoverCertificateText extends StatelessWidget {
           return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
-              children: certificates
+              children: certificatesList
                   .map((e) => Padding(
                         padding: const EdgeInsets.only(bottom: 15.0),
                         child: PortalTarget(

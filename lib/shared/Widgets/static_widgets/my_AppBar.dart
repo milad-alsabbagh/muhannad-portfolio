@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:muhannadwebsite/views/faq.dart';
 
+import '../../../views/About.dart';
 import 'mode_switcher.dart';
 class MyAppBar extends StatelessWidget implements PreferredSize {
   const MyAppBar({super.key});
@@ -16,7 +18,13 @@ class MyAppBar extends StatelessWidget implements PreferredSize {
         style: GoogleFonts.arizonia(),
         minFontSize: 14,
       ),
-      actions: [ModeSwitcher()],
+      actions: [
+        TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));}, child: Text('About')),
+        TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Faq()));}, child: Text('FAQ')),
+        ModeSwitcher(),
+
+
+      ],
     );
   }
 
