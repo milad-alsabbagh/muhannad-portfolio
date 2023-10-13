@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../models_lists/certificates_list.dart';
-import '../../../models_lists/skill_list.dart';
 import '../animated_widgets/onHoverCertificatesText.dart';
 import '../animated_widgets/onHoverSkillText.dart';
 class CoursesSkillsContainer extends StatelessWidget {

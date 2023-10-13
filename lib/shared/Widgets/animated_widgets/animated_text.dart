@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
+
 class AnimatedText extends StatefulWidget {
   final Duration duration;
   final String text;
 
-  AnimatedText({
+  const AnimatedText({
     required this.duration,
     required this.text,
   });

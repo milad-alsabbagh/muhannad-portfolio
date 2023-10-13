@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/shared/shared_variables.dart';
 import '../animated_widgets/animated_text.dart';
 
 class CoverStack extends StatelessWidget {
@@ -70,8 +69,9 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text('Download My CV'),
-                    IconButton(onPressed: (){
-                      cubit(context).launchInBrowser(resume);
+                     IconButton(onPressed: (){
+
+                    //   Navigator.push(context, MaterialPageRoute(builder: (context)=>PdfViews()));
 
                     }, icon: Icon(
                         Icons.download

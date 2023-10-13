@@ -106,7 +106,6 @@ final SkillModel e;
                 progressBar:
                 const GaugeProgressBar.rounded(color: Color(0xFF6750A4)),
               )),
-          Text('hello'),
           const SizedBox(height:10 ,),
           Row(
             children: [

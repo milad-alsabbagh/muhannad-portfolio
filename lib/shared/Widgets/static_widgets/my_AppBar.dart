@@ -1,29 +1,44 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:muhannadwebsite/views/blog_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
-
-import '../../../views/About.dart';
+import 'package:muhannadwebsite/views/new_home_view.dart';
 import 'mode_switcher.dart';
-class MyAppBar extends StatelessWidget implements PreferredSize {
-  const MyAppBar({super.key});
 
+class MyAppBar extends StatelessWidget implements PreferredSize {
+  const MyAppBar({super.key, required this.isHome});
+  final bool isHome;
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: !isHome,
       backgroundColor: Colors.transparent,
       elevation: 0.0,
-      title: AutoSizeText(
-        'Muhannad alsabbagh',
-        style: GoogleFonts.arizonia(),
-        minFontSize: 14,
+      title: InkWell(
+        onTap: () {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => NewDesktopView()));
+        },
+        child: AutoSizeText(
+          'Muhannad alsabbagh',
+          style: GoogleFonts.arizonia(),
+          minFontSize: 14,
+        ),
       ),
       actions: [
-        TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>About()));}, child: Text('About')),
-        TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Faq()));}, child: Text('FAQ')),
-        ModeSwitcher(),
-
-
+        TextButton(
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => BlogView()));
+            },
+            child: Text('Blogs')),
+        TextButton(
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Faq()));
+            },
+            child: Text('FAQ')),
       ],
     );
   }
@@ -34,5 +49,5 @@ class MyAppBar extends StatelessWidget implements PreferredSize {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>Size.fromHeight(60);
+  Size get preferredSize => Size.fromHeight(60);
 }

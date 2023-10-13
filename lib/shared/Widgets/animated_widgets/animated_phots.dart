@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:muhannadwebsite/models_lists/animates_photos_list.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
-import '../../../models/animated_photos_model.dart';
-
 
 class AnimatedPhotos extends StatelessWidget {
 

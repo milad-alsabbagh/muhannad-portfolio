@@ -1,14 +1,16 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/views/mobile_view.dart';
 import 'package:muhannadwebsite/shared/material_theme.dart';
-import 'package:muhannadwebsite/views/animatedtest.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
 
 void main() async {
+  WidgetsFlutterBinding;
+  // await js.context.callMethod('require', ['pdfjs-dist/build/pdf']);
   runApp(MyApp());
 }
 
@@ -27,10 +29,13 @@ class MyApp extends StatelessWidget {
           return Portal(
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-                theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-                darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-              themeMode:cubit(context).isDark?ThemeMode.dark:ThemeMode.light ,
-              home:  Home(),
+              theme:
+                  ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+              darkTheme:
+                  ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+              themeMode:
+                  cubit(context).isDark ? ThemeMode.dark : ThemeMode.light,
+              home: Home(),
             ),
           );
         },

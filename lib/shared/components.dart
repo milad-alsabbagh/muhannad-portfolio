@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/shared/shared_variables.dart';
-import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 import '../models/animated_photos_model.dart';
-import '../models/navigator.dart';
 
 //animated text widget that return greeting message
 

@@ -1,17 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:muhannadwebsite/cubit/cubit.dart';
-import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/shared/components.dart';
-import 'package:muhannadwebsite/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/link.dart';
-import 'package:widget_and_text_animator/widget_and_text_animator.dart';
-import 'package:gauge_indicator/gauge_indicator.dart';
-import '../models/navigator.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -116,8 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // onPressed calls using this URL are not gated on a 'canLaunch' check
     // because the assumption is that every device can launch a web URL.
-    final Uri toLaunch =
-    Uri.parse('https://drive.google.com/file/d/1RBUyJub0zfTv1FyTf8rQPHLgKi7PV-qb/view?usp=drive_link');
+    final Uri toLaunch = Uri.parse(
+        'https://drive.google.com/file/d/1RBUyJub0zfTv1FyTf8rQPHLgKi7PV-qb/view?usp=drive_link');
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -137,8 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                 onPressed: _hasCallSupport
                     ? () => setState(() {
-                  _launched = _makePhoneCall(_phone);
-                })
+                          _launched = _makePhoneCall(_phone);
+                        })
                     : null,
                 child: _hasCallSupport
                     ? const Text('Make phone call')

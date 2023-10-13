@@ -1,35 +1,33 @@
-
 import 'package:flutter/material.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
-
-import '../models/navigator.dart';
 import '../shared/Widgets/animated_widgets/animated_links_container.dart';
 import '../shared/Widgets/animated_widgets/animated_phots.dart';
 import '../shared/Widgets/static_widgets/courses_skills_container.dart';
 import '../shared/Widgets/static_widgets/cover_stack.dart';
 
 class DesktopView extends StatelessWidget {
-  DesktopView({super.key});
-
+  const DesktopView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      appBar: const MyAppBar(
+        isHome: true,
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Stack(
             alignment: AlignmentDirectional.bottomEnd,
             children: [
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const CoverStack(),
+                  CoverStack(),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                     CoursesSkillsContainer(),
-                      const SizedBox(
+                      CoursesSkillsContainer(),
+                      SizedBox(
                         width: 20,
                       ),
                       Expanded(
@@ -37,19 +35,15 @@ class DesktopView extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const SizedBox(
+                            SizedBox(
                               height: 30,
                             ),
                             Center(
-                              child: AnimatedPhotos(
-                              ),
+                              child: AnimatedPhotos(),
                             ),
-
-
                           ],
                         ),
                       ),
-
                     ],
                   ),
 
@@ -57,8 +51,10 @@ class DesktopView extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 30.0,bottom: 10),
-                child: AnimatedLinksContainer(direction: Direction.horizontal,),
+                padding: const EdgeInsets.only(right: 30.0, bottom: 10),
+                child: AnimatedLinksContainer(
+                  direction: Direction.horizontal,
+                ),
               ),
             ],
           ),
