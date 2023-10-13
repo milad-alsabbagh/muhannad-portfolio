@@ -12,6 +12,8 @@ then add new object inside links list in models/link_model.dart file
 4)add new skill? go to models_lists/skill_list.dart file and add object inside skillsList
 
 5)change your cv link inside shared/shared_variables.dart
+
+6)add blogs in lib/models_lists/blogs_list.dart file
 4)stay tuned we are not finished yet
 
 /*very important note : in any object that need index variable let the value as it is

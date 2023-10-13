@@ -4,21 +4,24 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/views/blog_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/new_home_view.dart';
-import 'mode_switcher.dart';
+
+import '../../shared_variables.dart';
+import '../styles/text_styles.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSize {
-  const MyAppBar({super.key, required this.isHome});
+  const MyAppBar({super.key, required this.isHome, this.pageNames});
   final bool isHome;
+  final PageNames? pageNames;
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      automaticallyImplyLeading: !isHome,
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       title: InkWell(
         onTap: () {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => NewDesktopView()));
+              MaterialPageRoute(builder: (context) => const NewDesktopView()));
         },
         child: AutoSizeText(
           'Muhannad alsabbagh',
@@ -29,16 +32,23 @@ class MyAppBar extends StatelessWidget implements PreferredSize {
       actions: [
         TextButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => BlogView()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const BlogView()));
             },
-            child: Text('Blogs')),
+            child: Text(
+              'Blogs',
+              style: pageNames == PageNames.blog ? currentPageIndexStyle : null,
+            )),
         TextButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Faq()));
-            },
-            child: Text('FAQ')),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => const Faq()));
+          },
+          child: Text(
+            'FAQ',
+            style: pageNames == PageNames.faq ? currentPageIndexStyle : null,
+          ),
+        ),
       ],
     );
   }
@@ -49,5 +59,5 @@ class MyAppBar extends StatelessWidget implements PreferredSize {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(60);
 }

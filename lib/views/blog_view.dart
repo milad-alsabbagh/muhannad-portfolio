@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:muhannadwebsite/models_lists/blogs_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
+import 'package:muhannadwebsite/shared/shared_variables.dart';
 
 class BlogView extends StatelessWidget {
   const BlogView({super.key});
@@ -18,6 +19,7 @@ class BlogView extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(
         isHome: false,
+        pageNames: PageNames.blog,
       ),
       body: Center(
         child: SingleChildScrollView(
