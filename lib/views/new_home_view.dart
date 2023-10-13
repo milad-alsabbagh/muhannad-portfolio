@@ -35,7 +35,7 @@ class NewDesktopView extends StatelessWidget {
                                 color: Color(0xff29D6B6), fontSize: 26),
                           ),
                           Text(
-                            'It\'s Memo',
+                            'It\'s Mimo',
                             style: GoogleFonts.sirinStencil(
                                 color: Color(0xff29D6B6), fontSize: 26),
                           ),

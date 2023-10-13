@@ -24,7 +24,7 @@ class MyAppBar extends StatelessWidget implements PreferredSize {
               MaterialPageRoute(builder: (context) => const NewDesktopView()));
         },
         child: AutoSizeText(
-          'Muhannad alsabbagh',
+          'Muhannad Alsabbagh',
           style: GoogleFonts.arizonia(),
           minFontSize: 14,
         ),
