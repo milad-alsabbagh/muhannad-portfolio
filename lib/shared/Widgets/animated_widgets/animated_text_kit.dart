@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
+import 'package:muhannadwebsite/models_lists/animated_text_list.dart';
+import '../styles/text_styles.dart';
 
 class AnimatedTextKitWidget extends StatelessWidget {
   const AnimatedTextKitWidget({super.key});
@@ -11,14 +11,8 @@ class AnimatedTextKitWidget extends StatelessWidget {
     return AnimatedTextKit(
         repeatForever: true,
         pause: const Duration(seconds: 3),
-        animatedTexts: [
-          TypewriterAnimatedText('programmer', textStyle: animatedTextKitStyle),
-          TypewriterAnimatedText(
-            'Developer',
-            textStyle: animatedTextKitStyle,
-          ),
-          TypewriterAnimatedText('Problem Solver',
-              textStyle: animatedTextKitStyle),
-        ]);
+        animatedTexts: animatedTextList
+            .map((e) => TyperAnimatedText(e, textStyle: animatedTextKitStyle))
+            .toList());
   }
 }

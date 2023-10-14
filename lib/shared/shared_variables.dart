@@ -11,4 +11,4 @@ final List<String> imagesList = [
 //   'assets/images/profile.jpeg',
 ];
 
-enum PageNames { blog, imagesOfLife, skills, faq }
+enum PageNames { blog, imagesOfLife, skills, faq, home }

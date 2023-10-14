@@ -5,13 +5,13 @@ List<BlogModel> blogs_list = [
       blogText:
           'dart langauge is powerfull programming language supported by google and announced in 2018 it has many good feauture that mak',
       date: 'june 8 2018',
-      imagePath: 'assets/images/docker.png',
+      imagePath: 'assets/images/cover.jpeg',
       title: 'somethimg about dart '),
   BlogModel(
       blogText:
           'dart langauge is powerfull programming language supported by google and announced in 2018 it has many good feauture that mak',
       date: 'june 8 2018',
-      imagePath: 'assets/images/docker.png',
+      imagePath: 'assets/images/cover1.jpeg',
       title: 'somethimg about dart '),
   BlogModel(
       blogText:

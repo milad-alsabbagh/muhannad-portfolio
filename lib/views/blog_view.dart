@@ -17,7 +17,7 @@ class BlogView extends StatelessWidget {
                 columns) -
             20;
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         isHome: false,
         pageNames: PageNames.blog,
       ),
@@ -32,19 +32,17 @@ class BlogView extends StatelessWidget {
                 children: [
                   Container(
                     width: w,
-                    height: w / 4,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff272B2A),
+                    height: w / 3,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    decoration: const BoxDecoration(
+                        color: Color(0xff272B2A),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),
                     child: Image(
                       image: AssetImage(blogs_list[index].imagePath),
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     ),
-                  ),
-                  SizedBox(
-                    height: 5,
                   ),
                   Container(
                     color: Colors.grey,
@@ -52,12 +50,13 @@ class BlogView extends StatelessWidget {
                     height: 2,
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 10),
                     width: w,
                     color: const Color(0xff272B2A),
                     child: Text(
                       blogs_list[index].title,
-                      style: TextStyle(color: Color(0xff29D6B6), fontSize: 20),
+                      style: const TextStyle(
+                          color: Color(0xff29D6B6), fontSize: 20),
                     ),
                   ),
                   Container(
@@ -70,12 +69,9 @@ class BlogView extends StatelessWidget {
                           left: 10.0, right: 10.0, top: 5, bottom: 5.0),
                       child: Text(
                         blogs_list[index].blogText,
-                        style: TextStyle(fontSize: 18),
+                        style: const TextStyle(fontSize: 18),
                       ),
                     )),
-                  ),
-                  SizedBox(
-                    height: 5,
                   ),
                   Container(
                     color: Colors.grey,
@@ -84,9 +80,10 @@ class BlogView extends StatelessWidget {
                   ),
                   Container(
                       width: w,
-                      padding: EdgeInsets.only(top: 5, bottom: 5, left: 15),
-                      decoration: BoxDecoration(
-                          color: const Color(0xff272B2A),
+                      padding:
+                          const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+                      decoration: const BoxDecoration(
+                          color: Color(0xff272B2A),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20))),
