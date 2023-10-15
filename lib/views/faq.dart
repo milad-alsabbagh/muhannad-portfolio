@@ -7,12 +7,18 @@ class Faq extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: MyAppBar(
-        isHome: false,
-        pageNames: PageNames.faq,
-      ),
-      body: Center(
+    final currentWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: currentWidth > 600
+          ? const DesktopAppBar(
+              isHome: false,
+              pageNames: PageNames.faq,
+            )
+          : const MobileAppBar(
+              isHome: false,
+              pageNames: PageNames.faq,
+            ),
+      body: const Center(
         child: Text('this is faq screen'),
       ),
     );

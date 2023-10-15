@@ -16,7 +16,10 @@ then add new object inside links list in models/link_model.dart file
 6)add blogs in lib/models_lists/blogs_list.dart file
 
 7)add animated text in first page in lib/models_lists/animated_text_list.dart file
-4)stay tuned we are not finished yet
+
+8)add images to images of lif's images page in lib/models_lists/images_of_life_list.dart file
+
+9)stay tuned we are not finished yet
 
 /*very important note : in any object that need index variable let the value as it is
 ++currentIndex otherwise the app may crush or make unexpected behavior*/

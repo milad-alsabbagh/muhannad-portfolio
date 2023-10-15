@@ -9,18 +9,23 @@ class BlogView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
-    final double runSpacing = 30;
-    final double spacing = 20;
+    const double runSpacing = 30;
+    const double spacing = 20;
     final columns = currentWidth > 950 ? 3 : 2;
     final w =
         ((MediaQuery.of(context).size.width - runSpacing * (columns - 1)) /
                 columns) -
             20;
     return Scaffold(
-      appBar: const MyAppBar(
-        isHome: false,
-        pageNames: PageNames.blog,
-      ),
+      appBar: currentWidth > 600
+          ? const DesktopAppBar(
+              isHome: false,
+              pageNames: PageNames.blog,
+            )
+          : const MobileAppBar(
+              isHome: false,
+              pageNames: PageNames.blog,
+            ),
       body: Center(
         child: SingleChildScrollView(
           child: Wrap(

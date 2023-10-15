@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 
-import 'new_home_view.dart';
+import 'desktop_viiew.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -14,9 +14,9 @@ class Home extends StatelessWidget {
         builder: (context, state) {
           return LayoutBuilder(builder: (context, constraints) {
             if (constraints.minWidth > 700) {
-              return const NewDesktopView();
+              return const DesktopView();
             } else {
-              return const NewDesktopView();
+              return const DesktopView();
             }
           });
         },

@@ -5,15 +5,18 @@ import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_text_ki
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
 import 'package:lottie/lottie.dart';
 
-class NewDesktopView extends StatelessWidget {
-  const NewDesktopView({super.key});
+class DesktopView extends StatelessWidget {
+  const DesktopView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: const MyAppBar(
-        isHome: true,
-      ),
+      appBar: currentWidth > 600
+          ? const DesktopAppBar(
+              isHome: true,
+            )
+          : const MobileAppBar(isHome: true),
       body: Column(
         children: [
           Expanded(

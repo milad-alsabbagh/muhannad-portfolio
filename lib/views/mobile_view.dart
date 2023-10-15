@@ -3,8 +3,9 @@ import 'package:muhannadwebsite/models_lists/images_of_life_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_drawer.dart';
-import 'package:muhannadwebsite/shared/components.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
+
+import '../shared/Widgets/animated_widgets/hover_image.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({super.key});
@@ -13,7 +14,7 @@ class MobileView extends StatelessWidget {
   Widget build(BuildContext context) {
     // double size = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: const MyAppBar(
+      appBar: const DesktopAppBar(
         isHome: true,
       ),
       drawer: const MyDrawer(),
