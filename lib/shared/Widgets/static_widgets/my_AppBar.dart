@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/views/blog_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
+import 'package:muhannadwebsite/views/images_of_life_view.dart';
 import 'package:muhannadwebsite/views/new_home_view.dart';
 
 import '../../shared_variables.dart';
@@ -47,6 +48,18 @@ class MyAppBar extends StatelessWidget implements PreferredSize {
           child: Text(
             'FAQ',
             style: pageNames == PageNames.faq ? currentPageIndexStyle : null,
+          ),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ImagesOfLife()));
+          },
+          child: Text(
+            'Life\'s Image',
+            style: pageNames == PageNames.imagesOfLife
+                ? currentPageIndexStyle
+                : null,
           ),
         ),
       ],

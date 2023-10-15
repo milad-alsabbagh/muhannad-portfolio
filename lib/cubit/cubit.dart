@@ -22,11 +22,12 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     }
   }
 
-  List<bool> isHover = [false, false];
+  List<bool> hoveringOnImagesOfLife = [];
 
-  void changeHoverVisibility({required bool hover, required int index}) {
-    isHover[index] = hover;
-    print(isHover);
+  void changeOnHoverImagesOflifeVisibility(
+      {required bool hover, required int index}) {
+    hoveringOnImagesOfLife[index] = hover;
+    print(hoveringOnImagesOfLife);
     emit(ChangeHoverVisibilityState());
   }
 
@@ -63,6 +64,9 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     }
     for (int i = 0; i <= skillsList.length - 1; i++) {
       hoveringOnSkills.add(false);
+    }
+    for (int i = 0; i <= skillsList.length - 1; i++) {
+      hoveringOnImagesOfLife.add(false);
     }
     emit(FullListsState());
   }

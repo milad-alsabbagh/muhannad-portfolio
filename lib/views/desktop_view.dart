@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
-import 'package:muhannadwebsite/shared/shared_variables.dart';
 import '../shared/Widgets/animated_widgets/animated_links_container.dart';
-import '../shared/Widgets/animated_widgets/animated_phots.dart';
 import '../shared/Widgets/static_widgets/courses_skills_container.dart';
 import '../shared/Widgets/static_widgets/cover_stack.dart';
 
@@ -39,9 +37,9 @@ class DesktopView extends StatelessWidget {
                             SizedBox(
                               height: 30,
                             ),
-                            Center(
-                              child: AnimatedPhotos(),
-                            ),
+                            // Center(
+                            //   child: AnimatedPhotos(),
+                            // ),
                           ],
                         ),
                       ),

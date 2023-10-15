@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:muhannadwebsite/models_lists/images_of_life_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_drawer.dart';
 import 'package:muhannadwebsite/shared/components.dart';
-
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-
-import '../models_lists/animates_photos_list.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({super.key});
@@ -36,8 +34,12 @@ class MobileView extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   unlimitedMode: true,
                   slideTransform: const CubeTransform(),
-                  children:
-                      animatedPhotosList.map((e) => HoverImage(e: e)).toList()),
+                  children: imagesOfLifeList
+                      .map((e) => HoverImage(
+                            animatedPhoto: e,
+                            width: 288,
+                          ))
+                      .toList()),
             ),
           ),
           Padding(

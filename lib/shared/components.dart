@@ -7,53 +7,63 @@ import 'package:muhannadwebsite/cubit/states.dart';
 import '../models/animated_photos_model.dart';
 
 class HoverImage extends StatelessWidget {
-  AnimatedPhoto e;
-  HoverImage({super.key, required this.e});
+  final AnimatedPhoto animatedPhoto;
+  final double width;
+  HoverImage({super.key, required this.animatedPhoto, required this.width});
   WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<WebsiteCubit, WebsiteStates>(
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
+          return MouseRegion(
+            onEnter: (pointer) {
+              cubit(context).changeOnHoverImagesOflifeVisibility(
+                  hover: true, index: animatedPhoto.index);
+            },
+            onExit: (pointer) {
+              cubit(context).changeOnHoverImagesOflifeVisibility(
+                  hover: false, index: animatedPhoto.index);
+            },
             child: Stack(
               alignment: AlignmentDirectional.bottomCenter,
               children: [
-                ClipRRect(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(15),
-                        topLeft: Radius.circular(15)),
-                    child: Image.asset(
-                      e.imagePath,
-                      width: 300,
-                      height: 700,
-                      fit: BoxFit.cover,
-                    )),
+                ColorFiltered(
+                  colorFilter:
+                      cubit(context).hoveringOnImagesOfLife[animatedPhoto.index]
+                          ? const ColorFilter.mode(
+                              Colors.transparent,
+                              BlendMode.multiply,
+                            )
+                          : const ColorFilter.mode(
+                              Colors.grey,
+                              BlendMode.saturation,
+                            ),
+                  child: Image.asset(
+                    animatedPhoto.imagePath,
+                    fit: BoxFit.fill,
+                    width: 500,
+                    height: 900,
+                  ),
+                ),
                 Visibility(
-                  visible: true,
+                  visible: cubit(context)
+                      .hoveringOnImagesOfLife[animatedPhoto.index],
                   child: Container(
-                    constraints: BoxConstraints(
-                      maxWidth: 300,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15)),
-                      color: Color(0xFF6750A4).withOpacity(0.6),
-                    ),
-                    child: e.text != null
+                    width: width,
+                    color: Colors.black.withOpacity(0.3),
+                    child: animatedPhoto.text != null
                         ? Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 5.0, vertical: 20),
                             child: Text(
-                              e.text!,
-                              style: TextStyle(
-                                color: Colors.black,
+                              textAlign: TextAlign.center,
+                              animatedPhoto.text!,
+                              style: const TextStyle(
                                 fontSize: 16,
                               ),
                             ),
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                   ),
                 )
               ],
