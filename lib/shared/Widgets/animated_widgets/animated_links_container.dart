@@ -46,8 +46,9 @@ class AnimatedLinksContainer extends StatelessWidget {
 }
 
 class LinksRow extends StatelessWidget {
-  LinksRow({super.key, required this.links});
+  LinksRow({super.key, required this.links, this.isHome = true});
   List<LinkModel> links;
+  final bool isHome;
   WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
@@ -59,6 +60,7 @@ class LinksRow extends StatelessWidget {
                 .map((e) => Row(
                       children: [
                         ScalingLinksImage(
+                          isHome: isHome,
                           uri: e.uri,
                           imagePath: e.imagePath,
                           index: e.index,
@@ -76,8 +78,9 @@ class LinksRow extends StatelessWidget {
 }
 
 class LinksColumn extends StatelessWidget {
-  LinksColumn({super.key, required this.links});
+  LinksColumn({super.key, required this.links, this.isHome = true});
   List<LinkModel> links;
+  final bool isHome;
   WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
@@ -89,6 +92,7 @@ class LinksColumn extends StatelessWidget {
                 .map((e) => Column(
                       children: [
                         ScalingLinksImage(
+                          isHome: isHome,
                           uri: e.uri,
                           imagePath: e.imagePath,
                           index: e.index,
@@ -109,8 +113,12 @@ class ScalingLinksImage extends StatelessWidget {
   final int index;
   final Uri uri;
   final String imagePath;
+  final bool isHome;
   ScalingLinksImage(
-      {required this.index, required this.imagePath, required this.uri});
+      {required this.isHome,
+      required this.index,
+      required this.imagePath,
+      required this.uri});
 
   WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
@@ -129,8 +137,12 @@ class ScalingLinksImage extends StatelessWidget {
               child: AnimatedContainer(
                   duration: Duration(milliseconds: 200),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Color(0xFF6750A4).withOpacity(0.4),
+                    borderRadius: isHome == true
+                        ? BorderRadius.circular(40)
+                        : BorderRadius.circular(5),
+                    color: isHome == true
+                        ? Color(0xFF6750A4).withOpacity(0.4)
+                        : Colors.white.withOpacity(0.2),
                   ),
                   padding: EdgeInsets.all(7),
                   width: 34,

@@ -70,6 +70,12 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     }
     emit(FullListsState());
   }
+
+  int clickedImageIndex = -1;
+  void clickOnImage(int imageIndex) {
+    clickedImageIndex = imageIndex;
+    emit(ClickOnImageState());
+  }
 // late PdfController pdfController;
 //   Future<void> loadPDF(BuildContext context) async {
 //      pdfController = PdfController(

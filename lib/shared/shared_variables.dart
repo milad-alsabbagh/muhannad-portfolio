@@ -5,10 +5,4 @@ final Uri linkedInUri =
 final Uri resume = Uri.parse(
     'https://drive.google.com/file/d/1RBUyJub0zfTv1FyTf8rQPHLgKi7PV-qb/view?usp=drive_link');
 
-final List<String> imagesList = [
-  'assets/images/cover.jpeg',
-// 'assets/images/dark.jpg',
-//   'assets/images/profile.jpeg',
-];
-
-enum PageNames { blog, imagesOfLife, skills, faq, home }
+enum PageNames { blog, imagesOfLife, about, faq, home }

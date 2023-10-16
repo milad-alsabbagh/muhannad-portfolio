@@ -7,3 +7,7 @@ final TextStyle animatedTextKitStyle = GoogleFonts.charm(
     backgroundColor: const Color(0xff272B2A),
     color: const Color(0xff29D6B6),
     fontSize: 28);
+final TextStyle animatedTextKitAboutMeStyle = GoogleFonts.charm(
+  fontSize: 28,
+  color: const Color(0xff29D6B6),
+);

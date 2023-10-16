@@ -6,13 +6,14 @@ import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/images_of_life_view.dart';
 import 'package:muhannadwebsite/views/desktop_viiew.dart';
 
+import '../../../views/about_view.dart';
 import '../../shared_variables.dart';
 import '../styles/text_styles.dart';
 
 class DesktopAppBar extends StatelessWidget implements PreferredSize {
-  const DesktopAppBar({super.key, required this.isHome, this.pageNames});
+  const DesktopAppBar({super.key, required this.isHome, this.currentPage});
   final bool isHome;
-  final PageNames? pageNames;
+  final PageNames? currentPage;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -34,11 +35,22 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
         TextButton(
             onPressed: () {
               Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutView()));
+            },
+            child: Text(
+              'About',
+              style:
+                  currentPage == PageNames.about ? currentPageIndexStyle : null,
+            )),
+        TextButton(
+            onPressed: () {
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const BlogView()));
             },
             child: Text(
               'Blogs',
-              style: pageNames == PageNames.blog ? currentPageIndexStyle : null,
+              style:
+                  currentPage == PageNames.blog ? currentPageIndexStyle : null,
             )),
         TextButton(
           onPressed: () {
@@ -47,7 +59,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
           },
           child: Text(
             'FAQ',
-            style: pageNames == PageNames.faq ? currentPageIndexStyle : null,
+            style: currentPage == PageNames.faq ? currentPageIndexStyle : null,
           ),
         ),
         TextButton(
@@ -57,7 +69,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
           },
           child: Text(
             'Life\'s Image',
-            style: pageNames == PageNames.imagesOfLife
+            style: currentPage == PageNames.imagesOfLife
                 ? currentPageIndexStyle
                 : null,
           ),
@@ -76,9 +88,9 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
 }
 
 class MobileAppBar extends StatelessWidget implements PreferredSize {
-  const MobileAppBar({super.key, required this.isHome, this.pageNames});
+  const MobileAppBar({super.key, required this.isHome, this.currentPage});
   final bool isHome;
-  final PageNames? pageNames;
+  final PageNames? currentPage;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -111,11 +123,24 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
+                            builder: (context) => const AboutView()));
+                  },
+                  child: Text(
+                    'About',
+                    style: currentPage == PageNames.about
+                        ? currentPageIndexStyle
+                        : null,
+                  )),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
                             builder: (context) => const BlogView()));
                   },
                   child: Text(
                     'Blogs',
-                    style: pageNames == PageNames.blog
+                    style: currentPage == PageNames.blog
                         ? currentPageIndexStyle
                         : null,
                   )),
@@ -126,8 +151,9 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                 },
                 child: Text(
                   'FAQ',
-                  style:
-                      pageNames == PageNames.faq ? currentPageIndexStyle : null,
+                  style: currentPage == PageNames.faq
+                      ? currentPageIndexStyle
+                      : null,
                 ),
               ),
               TextButton(
@@ -139,7 +165,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                 },
                 child: Text(
                   'Life\'s Image',
-                  style: pageNames == PageNames.imagesOfLife
+                  style: currentPage == PageNames.imagesOfLife
                       ? currentPageIndexStyle
                       : null,
                 ),

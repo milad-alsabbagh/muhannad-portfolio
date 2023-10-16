@@ -12,11 +12,11 @@ class Faq extends StatelessWidget {
       appBar: currentWidth > 600
           ? const DesktopAppBar(
               isHome: false,
-              pageNames: PageNames.faq,
+              currentPage: PageNames.faq,
             )
           : const MobileAppBar(
               isHome: false,
-              pageNames: PageNames.faq,
+              currentPage: PageNames.faq,
             ),
       body: const Center(
         child: Text('this is faq screen'),

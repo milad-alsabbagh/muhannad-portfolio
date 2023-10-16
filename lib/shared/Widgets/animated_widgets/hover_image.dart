@@ -24,7 +24,7 @@ class HoverImage extends StatelessWidget {
                   hover: false, index: animatedPhoto.index);
             },
             child: Stack(
-              alignment: AlignmentDirectional.bottomCenter,
+              alignment: AlignmentDirectional.topStart,
               children: [
                 ColorFiltered(
                   colorFilter:
@@ -44,26 +44,53 @@ class HoverImage extends StatelessWidget {
                     height: 900,
                   ),
                 ),
-                Visibility(
-                  visible: cubit(context)
-                      .hoveringOnImagesOfLife[animatedPhoto.index],
-                  child: Container(
-                    width: width,
-                    color: Colors.black.withOpacity(0.3),
-                    child: animatedPhoto.text != null
-                        ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5.0, vertical: 20),
-                            child: Text(
-                              textAlign: TextAlign.center,
-                              animatedPhoto.text!,
-                              style: const TextStyle(
-                                fontSize: 16,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.2),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(10))),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10),
+                        child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: Colors.grey,
                               ),
-                            ),
-                          )
-                        : const SizedBox(),
-                  ),
+                              Text(animatedPhoto.location)
+                            ]),
+                      ),
+                    ),
+                    const Spacer(),
+                    Visibility(
+                      visible: cubit(context)
+                          .hoveringOnImagesOfLife[animatedPhoto.index],
+                      child: Container(
+                        width: width,
+                        color: Colors.black.withOpacity(0.3),
+                        child: animatedPhoto.text != null
+                            ? Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 5.0, vertical: 20),
+                                child: Text(
+                                  textAlign: TextAlign.center,
+                                  animatedPhoto.text!,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),

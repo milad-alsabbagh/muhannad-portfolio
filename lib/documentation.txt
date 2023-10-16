@@ -23,3 +23,60 @@ then add new object inside links list in models/link_model.dart file
 
 /*very important note : in any object that need index variable let the value as it is
 ++currentIndex otherwise the app may crush or make unexpected behavior*/
+
+
+Container(
+                padding: const EdgeInsets.symmetric(horizontal: 50),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          'Muannad Alsabbagh',
+                          style: GoogleFonts.sirinStencil(
+                            fontSize: 24,
+                          ),
+                        ),
+                        const Text(aboutMe),
+                        LinksRow(
+                          links: linksList,
+                          isHome: false,
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Wrap(
+                        runSpacing: runSpacing,
+                        spacing: spacing,
+                        alignment: WrapAlignment.center,
+                        children:
+                            List.generate(imagesOfLifeList.length, (index) {
+                          return Column(
+                            children: [
+                              Container(
+                                  width: w / 2,
+                                  height: w / 4,
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff272B2A),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: InkWell(
+                                    onTap: () {
+                                      cubit(context).clickOnImage(
+                                          imagesOfLifeList[index].index);
+                                    },
+                                    child: HoverImage(
+                                      animatedPhoto: imagesOfLifeList[index],
+                                      width: w,
+                                    ),
+                                  )),
+                            ],
+                          );
+                        }),
+                      ),
+                    ),
+                  ],
+                ),
+              )

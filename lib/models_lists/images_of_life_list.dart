@@ -5,14 +5,27 @@ List<AnimatedPhoto> imagesOfLifeList = [
   AnimatedPhoto(
       index: ++currentIndex,
       imagePath: 'assets/images/1.jpg',
+      location: 'LA,California',
       text:
           'LA,Usa,ejfoejfoejfoejfojeofjeofjoejfoefejfojefoejfoejfojeofjeofjeojfojefojefo'),
   AnimatedPhoto(
-      index: ++currentIndex, imagePath: 'assets/images/2.jpg', text: 'LA,Usa'),
+      location: 'Dubai,UAE',
+      index: ++currentIndex,
+      imagePath: 'assets/images/docker.png',
+      text: 'LA,Usa'),
   AnimatedPhoto(
-      index: ++currentIndex, imagePath: 'assets/images/1.jpg', text: 'LA,Usa'),
+      location: 'Maldif',
+      index: ++currentIndex,
+      imagePath: 'assets/images/1.jpg',
+      text: 'LA,Usa'),
   AnimatedPhoto(
-      index: ++currentIndex, imagePath: 'assets/images/4.jpg', text: 'LA,Usa'),
+      location: 'NewYork,USA',
+      index: ++currentIndex,
+      imagePath: 'assets/images/4.jpg',
+      text: 'LA,Usa'),
   AnimatedPhoto(
-      index: ++currentIndex, imagePath: 'assets/images/4.jpg', text: 'LA,Usa'),
+      location: 'Miame,USA',
+      index: ++currentIndex,
+      imagePath: 'assets/images/4.jpg',
+      text: 'LA,Usa'),
 ];

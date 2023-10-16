@@ -20,11 +20,11 @@ class BlogView extends StatelessWidget {
       appBar: currentWidth > 600
           ? const DesktopAppBar(
               isHome: false,
-              pageNames: PageNames.blog,
+              currentPage: PageNames.blog,
             )
           : const MobileAppBar(
               isHome: false,
-              pageNames: PageNames.blog,
+              currentPage: PageNames.blog,
             ),
       body: Center(
         child: SingleChildScrollView(
