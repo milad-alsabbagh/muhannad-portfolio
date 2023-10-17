@@ -97,12 +97,12 @@ class AboutView extends StatelessWidget {
                 ),
                 const Text('Skills', style: TextStyle(fontSize: 32)),
                 Container(
-                  width: double.infinity,
-                  height: height / 2,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.black.withOpacity(0.3)),
-                )
+                    width: double.infinity,
+                    height: height / 2,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.black.withOpacity(0.3)),
+                    child: Wrap())
               ]),
             ),
           ),

@@ -56,7 +56,7 @@ class MyDrawer extends StatelessWidget {
               children: const [
                 Padding(
                   padding: EdgeInsets.only(left: 15.0),
-                  child: OnHoverSkillText(),
+                  // child: OnHoverSkillText(),
                 )
               ],
             ),
