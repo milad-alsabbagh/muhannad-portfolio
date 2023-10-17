@@ -3,6 +3,7 @@ import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/models_lists/skill_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models_lists/certificates_list.dart';
+import '../models_lists/images_of_life_list.dart';
 import '../models_lists/links_list.dart';
 
 class WebsiteCubit extends Cubit<WebsiteStates> {
@@ -65,7 +66,7 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     for (int i = 0; i <= skillsList.length - 1; i++) {
       hoveringOnSkills.add(false);
     }
-    for (int i = 0; i <= skillsList.length - 1; i++) {
+    for (int i = 0; i <= imagesOfLifeList.length - 1; i++) {
       hoveringOnImagesOfLife.add(false);
     }
     emit(FullListsState());
