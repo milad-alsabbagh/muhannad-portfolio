@@ -1,12 +1,12 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_portal/flutter_portal.dart';
-import 'package:gauge_indicator/gauge_indicator.dart';
-import 'package:muhannadwebsite/models_lists/skill_list.dart';
-import '../../../cubit/cubit.dart';
-import '../../../cubit/states.dart';
-import '../../../models/skill_model.dart';
+// import 'package:auto_size_text/auto_size_text.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_portal/flutter_portal.dart';
+// import 'package:gauge_indicator/gauge_indicator.dart';
+// import 'package:muhannadwebsite/models_lists/skill_list.dart';
+// import '../../../cubit/cubit.dart';
+// import '../../../cubit/states.dart';
+// import '../../../models/skill_model.dart';
 // class OnHoverSkillText extends StatelessWidget {
 //  const OnHoverSkillText ({super.key});
 //   WebsiteCubit cubit(context)=>BlocProvider.of(context);

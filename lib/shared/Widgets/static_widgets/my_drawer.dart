@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../animated_widgets/onHoverCertificatesText.dart';
-import '../animated_widgets/onHoverSkillText.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});

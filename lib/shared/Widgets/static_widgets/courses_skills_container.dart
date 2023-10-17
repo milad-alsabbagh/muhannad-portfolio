@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../animated_widgets/onHoverCertificatesText.dart';
-import '../animated_widgets/onHoverSkillText.dart';
 
 class CoursesSkillsContainer extends StatelessWidget {
   const CoursesSkillsContainer({super.key});
