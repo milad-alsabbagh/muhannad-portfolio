@@ -20,11 +20,12 @@ class AnimatedLinksContainer extends StatelessWidget {
     return BlocConsumer<WebsiteCubit, WebsiteStates>(
       builder: (context, state) {
         return AnimatedContainer(
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           transform: Matrix4.identity()
             ..scale(cubit(context).rowContainer ? 1.1 : 1.0,
                 cubit(context).rowContainer ? 1.1 : 1.0),
           decoration: BoxDecoration(
+            color: Colors.blueGrey.withOpacity(0.2),
             border: Border.all(
               color: Color(0xFF6750A4).withOpacity(0.5),
               width: 2,

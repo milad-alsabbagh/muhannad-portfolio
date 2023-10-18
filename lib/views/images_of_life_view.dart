@@ -9,6 +9,8 @@ import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
 import 'package:muhannadwebsite/shared/constants.dart';
 import 'package:muhannadwebsite/shared/shared_variables.dart';
 
+import '../models_lists/links_list.dart';
+import '../shared/Widgets/animated_widgets/animated_links_container.dart';
 import '../shared/Widgets/animated_widgets/hover_image.dart';
 
 class ImagesOfLife extends StatelessWidget {
@@ -48,6 +50,10 @@ class ImagesOfLife extends StatelessWidget {
               child: Stack(
                 alignment: AlignmentDirectional.center,
                 children: [
+                  const SizedBox(
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
                   ScrollConfiguration(
                     behavior:
                         const ScrollBehavior().copyWith(scrollbars: false),
@@ -67,7 +73,7 @@ class ImagesOfLife extends StatelessWidget {
                                     height: w * 1.7,
                                     clipBehavior: Clip.antiAliasWithSaveLayer,
                                     decoration: BoxDecoration(
-                                      color: Color(0xff272B2A),
+                                      color: const Color(0xff272B2A),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: InkWell(
@@ -85,6 +91,19 @@ class ImagesOfLife extends StatelessWidget {
                           }),
                         ),
                       ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0.0,
+                    left: currentWidth / 2 -
+                        ((40 +
+                                ((linksList.length - 1) * 10) +
+                                (linksList.length * 34)) /
+                            2),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: AnimatedLinksContainer(
+                          direction: Direction.horizontal),
                     ),
                   ),
                   cubit(context).clickedImageIndex != -1

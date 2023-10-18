@@ -44,151 +44,167 @@ class AboutView extends StatelessWidget {
                   isHome: false,
                   currentPage: PageNames.about,
                 ),
-          body: ScrollConfiguration(
-            behavior: const ScrollBehavior().copyWith(scrollbars: false),
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 30.0),
-              child: SingleChildScrollView(
-                child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.black.withOpacity(0.3),
-                        ),
-                        width: double.infinity,
-                        child:
-                            Column(mainAxisSize: MainAxisSize.min, children: [
-                          Text(
-                            'Muhannad Al-sabbagh',
-                            style: GoogleFonts.sirinStencil(
-                              fontSize: 32,
+          body: Stack(
+            children: [
+              const SizedBox(
+                height: double.infinity,
+              ),
+              ScrollConfiguration(
+                behavior: const ScrollBehavior().copyWith(scrollbars: false),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 30.0),
+                  child: SingleChildScrollView(
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Colors.black.withOpacity(0.3),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            'SOFTWARE ENGINEER ,ELECTRIC ENGINNER',
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.blueGrey),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 15.0),
-                            child: AnimatedTextKit(
-                                repeatForever: false,
-                                pause: const Duration(seconds: 3),
-                                totalRepeatCount: 1,
-                                animatedTexts: [
-                                  TyperAnimatedText(aboutMe,
-                                      speed: const Duration(milliseconds: 50),
-                                      textStyle: animatedTextKitAboutMeStyle)
+                            width: double.infinity,
+                            child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    'Muhannad Alsabbagh',
+                                    style: GoogleFonts.sirinStencil(
+                                      fontSize: 32,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const Text(
+                                    'SOFTWARE ENGINEER ,ELECTRIC ENGINNER',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.blueGrey),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15.0),
+                                    child: AnimatedTextKit(
+                                        repeatForever: false,
+                                        pause: const Duration(seconds: 3),
+                                        totalRepeatCount: 1,
+                                        animatedTexts: [
+                                          TyperAnimatedText(aboutMe,
+                                              speed: const Duration(
+                                                  milliseconds: 50),
+                                              textStyle:
+                                                  animatedTextKitAboutMeStyle)
+                                        ]),
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  )
                                 ]),
                           ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          LinksRow(
-                            links: linksList,
-                            isHome: false,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          )
-                        ]),
+                        ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  ExpansionTile(
-                    controller: skillController,
-                    onExpansionChanged: (value) {
-                      courseController.collapse();
-                      // skillController.expand();
-                    },
-                    title: const Center(
-                        child: Text(
-                      'Skills',
-                      style: TextStyle(fontSize: 32),
-                    )),
-                    children: [
-                      Center(
-                        child: Container(
-                            width: double.infinity,
-                            // height: height / 2,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.black.withOpacity(0.3)),
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15.0),
-                                child: Center(
-                                  child: Wrap(
-                                    children: List.generate(skillsList.length,
-                                        (index) {
-                                      return SkillContaienr(
-                                          skillModel: skillsList[index]);
-                                    }),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      ExpansionTile(
+                        controller: skillController,
+                        onExpansionChanged: (value) {
+                          courseController.collapse();
+                          // skillController.expand();
+                        },
+                        title: const Center(
+                            child: Text(
+                          'Skills',
+                          style: TextStyle(fontSize: 32),
+                        )),
+                        children: [
+                          Center(
+                            child: Container(
+                                width: double.infinity,
+                                // height: height / 2,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: Colors.black.withOpacity(0.3)),
+                                child: SingleChildScrollView(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15.0),
+                                    child: Center(
+                                      child: Wrap(
+                                        children: List.generate(
+                                            skillsList.length, (index) {
+                                          return SkillContaienr(
+                                              skillModel: skillsList[index]);
+                                        }),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            )),
-                      )
-                    ],
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Divider(
-                      thickness: 3,
-                      color: Colors.blueGrey,
-                    ),
-                  ),
-                  ExpansionTile(
-                    controller: courseController,
-                    onExpansionChanged: (value) {
-                      skillController.collapse();
-                      // courseController.expand();
-                    },
-                    title: const Center(
-                        child: Text(
-                      'Courses',
-                      style: TextStyle(fontSize: 32),
-                    )),
-                    children: [
-                      Center(
-                        child: Container(
-                            width: double.infinity,
-                            height: height / 2,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.black.withOpacity(0.3)),
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15.0),
-                                child: Center(
-                                  child: Wrap(
-                                    children: List.generate(coursesList.length,
-                                        (index) {
-                                      return CourseContainer(
-                                          courseModel: coursesList[index]);
-                                    }),
+                                )),
+                          )
+                        ],
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Divider(
+                          thickness: 3,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                      ExpansionTile(
+                        controller: courseController,
+                        onExpansionChanged: (value) {
+                          skillController.collapse();
+                          // courseController.expand();
+                        },
+                        title: const Center(
+                            child: Text(
+                          'Courses',
+                          style: TextStyle(fontSize: 32),
+                        )),
+                        children: [
+                          Center(
+                            child: Container(
+                                width: double.infinity,
+                                height: height / 2,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: Colors.black.withOpacity(0.3)),
+                                child: SingleChildScrollView(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15.0),
+                                    child: Center(
+                                      child: Wrap(
+                                        children: List.generate(
+                                            coursesList.length, (index) {
+                                          return CourseContainer(
+                                              courseModel: coursesList[index]);
+                                        }),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            )),
-                      )
-                    ],
+                                )),
+                          )
+                        ],
+                      ),
+                    ]),
                   ),
-                ]),
+                ),
               ),
-            ),
+              Positioned(
+                bottom: 0.0,
+                left: currentWidth / 2 -
+                    ((40 +
+                            ((linksList.length - 1) * 10) +
+                            (linksList.length * 34)) /
+                        2),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child:
+                      AnimatedLinksContainer(direction: Direction.horizontal),
+                ),
+              ),
+            ],
           ),
         );
       },

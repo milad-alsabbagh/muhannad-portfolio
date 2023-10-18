@@ -3,6 +3,9 @@ import 'package:muhannadwebsite/models_lists/blogs_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
 import 'package:muhannadwebsite/shared/shared_variables.dart';
 
+import '../models_lists/links_list.dart';
+import '../shared/Widgets/animated_widgets/animated_links_container.dart';
+
 class BlogView extends StatelessWidget {
   const BlogView({super.key});
 
@@ -32,79 +35,100 @@ class BlogView extends StatelessWidget {
       //         currentPage: PageNames.blog,
       //       ),
       body: Center(
-        child: ScrollConfiguration(
-          behavior: ScrollBehavior().copyWith(scrollbars: false),
-          child: SingleChildScrollView(
-            child: Wrap(
-              runSpacing: runSpacing,
-              spacing: spacing,
-              alignment: WrapAlignment.center,
-              children: List.generate(blogs_list.length, (index) {
-                return Column(
-                  children: [
-                    Container(
-                      width: w,
-                      height: w / 3,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      decoration: const BoxDecoration(
-                          color: Color(0xff272B2A),
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20))),
-                      child: Image(
-                        image: AssetImage(blogs_list[index].imagePath),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Container(
-                      color: Colors.grey,
-                      width: w,
-                      height: 2,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 10),
-                      width: w,
-                      color: const Color(0xff272B2A),
-                      child: Text(
-                        blogs_list[index].title,
-                        style: const TextStyle(
-                            color: Color(0xff29D6B6), fontSize: 20),
-                      ),
-                    ),
-                    Container(
-                      width: w,
-                      height: w / 2,
-                      color: const Color(0xff272B2A),
-                      child: SingleChildScrollView(
-                          child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 10.0, right: 10.0, top: 5, bottom: 5.0),
-                        child: Text(
-                          blogs_list[index].blogText,
-                          style: const TextStyle(fontSize: 18),
-                        ),
-                      )),
-                    ),
-                    Container(
-                      color: Colors.grey,
-                      width: w,
-                      height: 2,
-                    ),
-                    Container(
-                        width: w,
-                        padding:
-                            const EdgeInsets.only(top: 5, bottom: 5, left: 15),
-                        decoration: const BoxDecoration(
-                            color: Color(0xff272B2A),
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20))),
-                        child: Text(blogs_list[index].date))
-                  ],
-                );
-              }),
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            SizedBox(
+              height: double.infinity,
+              width: double.infinity,
             ),
-          ),
+            ScrollConfiguration(
+              behavior: ScrollBehavior().copyWith(scrollbars: false),
+              child: SingleChildScrollView(
+                child: Wrap(
+                  runSpacing: runSpacing,
+                  spacing: spacing,
+                  alignment: WrapAlignment.center,
+                  children: List.generate(blogs_list.length, (index) {
+                    return Column(
+                      children: [
+                        Container(
+                          width: w,
+                          height: w / 3,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          decoration: const BoxDecoration(
+                              color: Color(0xff272B2A),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))),
+                          child: Image(
+                            image: AssetImage(blogs_list[index].imagePath),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Container(
+                          color: Colors.grey,
+                          width: w,
+                          height: 2,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(left: 10),
+                          width: w,
+                          color: const Color(0xff272B2A),
+                          child: Text(
+                            blogs_list[index].title,
+                            style: const TextStyle(
+                                color: Color(0xff29D6B6), fontSize: 20),
+                          ),
+                        ),
+                        Container(
+                          width: w,
+                          height: w / 2,
+                          color: const Color(0xff272B2A),
+                          child: SingleChildScrollView(
+                              child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 10.0, right: 10.0, top: 5, bottom: 5.0),
+                            child: Text(
+                              blogs_list[index].blogText,
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          )),
+                        ),
+                        Container(
+                          color: Colors.grey,
+                          width: w,
+                          height: 2,
+                        ),
+                        Container(
+                            width: w,
+                            padding: const EdgeInsets.only(
+                                top: 5, bottom: 5, left: 15),
+                            decoration: const BoxDecoration(
+                                color: Color(0xff272B2A),
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20))),
+                            child: Text(blogs_list[index].date))
+                      ],
+                    );
+                  }),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0.0,
+              left: currentWidth / 2 -
+                  ((40 +
+                          ((linksList.length - 1) * 10) +
+                          (linksList.length * 34)) /
+                      2),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: AnimatedLinksContainer(direction: Direction.horizontal),
+              ),
+            ),
+          ],
         ),
       ),
     );
