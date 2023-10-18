@@ -59,12 +59,16 @@ class CourseContainer extends StatelessWidget {
           const Divider(
             color: Colors.blueGrey,
           ),
-          Row(
-            children: [
-              Text(courseModel.date),
-              const Spacer(),
-              Text(courseModel.source),
-            ],
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+            child: Row(
+              children: [
+                Text(courseModel.date),
+                const Spacer(),
+                Text(courseModel.source),
+              ],
+            ),
           )
         ]),
       ),
