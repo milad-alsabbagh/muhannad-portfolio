@@ -1,36 +1,34 @@
 import '../models/certificate_model.dart';
 
-int currentIndex = -1;
 List<CertificateModel> certificatesList = [
   CertificateModel(
-      source: 'Coursera',
-      date: 'Sep-16-2022',
-      summary: 'Coming soon',
-      title: 'Google IT Support',
-      index: ++currentIndex),
+      date: '16_june_2020',
+      source: 'udemy',
+      summary: 'in this course I learn how to deal with database in mySql ',
+      title: 'Database for beginer',
+      courseImagePath: 'assets/images/facebooklogo.png'),
   CertificateModel(
-      source: 'Coursera',
-      date: 'Sep-13-2023',
-      summary: 'Coming Soon',
-      title: 'Introduction to Docker',
-      index: ++currentIndex),
+      date: '16_june_2020',
+      source: 'udemy',
+      summary: 'in this course I learn how to deal with database in mySql ',
+      title: 'Database for beginer',
+      courseImagePath: 'assets/images/facebooklogo.png'),
   CertificateModel(
-      source: 'Coursera',
-      date: 'Jul-11-2023',
-      summary: 'Coming Soon',
-      title: 'AWS Cloud Practitioner Essentials',
-      index: ++currentIndex),
+      date: '16_june_2020',
+      source: 'udemy',
+      summary: 'in this course I learn how to deal with database in mySql ',
+      title: 'Database for beginer',
+      courseImagePath: 'assets/images/facebooklogo.png'),
   CertificateModel(
-      source: 'Coursera',
-      date: 'ON going',
-      summary: 'Coming Soon',
-      title: 'Google Data Analytics Professional Certificate',
-      index: ++currentIndex),
+      date: '16_june_2020',
+      source: 'udemy',
+      summary: 'in this course I learn how to deal with database in mySql ',
+      title: 'Database for beginer',
+      courseImagePath: 'assets/images/facebooklogo.png'),
   CertificateModel(
-      source: 'Udemy',
-      date: 'On going',
-      summary: 'Coming Soon',
-      title: 'Django',
-      index: ++currentIndex),
+      date: '16_june_2020',
+      source: 'udemy',
+      summary: 'in this course I learn how to deal with database in mySql ',
+      title: 'Database for beginer',
+      courseImagePath: 'assets/images/facebooklogo.png')
 ];
-//make sure the index in any object is ++currentIndex

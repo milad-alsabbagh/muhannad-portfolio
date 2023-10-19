@@ -59,7 +59,7 @@ class ImagesOfLife extends StatelessWidget {
                         const ScrollBehavior().copyWith(scrollbars: false),
                     child: SingleChildScrollView(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        padding: const EdgeInsets.only(bottom: 60.0, top: 10),
                         child: Wrap(
                           runSpacing: runSpacing,
                           spacing: spacing,

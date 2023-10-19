@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/course_model.dart';
+import '../../../models/certificate_model.dart';
 
-class CourseContainer extends StatelessWidget {
-  const CourseContainer({super.key, required this.courseModel});
-  final CourseModel courseModel;
+class CertificateContainer extends StatelessWidget {
+  const CertificateContainer({super.key, required this.certificateModel});
+  final CertificateModel certificateModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,11 +20,11 @@ class CourseContainer extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                courseModel.courseImagePath != null
+                certificateModel.courseImagePath != null
                     ? Padding(
                         padding: const EdgeInsets.only(left: 10.0, top: 5),
                         child: Image(
-                          image: AssetImage(courseModel.courseImagePath!),
+                          image: AssetImage(certificateModel.courseImagePath!),
                           width: 40,
                           height: 40,
                         ),
@@ -36,7 +36,7 @@ class CourseContainer extends StatelessWidget {
                 Container(
                   width: 220,
                   child: Text(
-                    courseModel.title,
+                    certificateModel.title,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -52,7 +52,7 @@ class CourseContainer extends StatelessWidget {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
-                child: Text(courseModel.summary),
+                child: Text(certificateModel.summary),
               ),
             ),
           ),
@@ -64,9 +64,9 @@ class CourseContainer extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             child: Row(
               children: [
-                Text(courseModel.date),
+                Text(certificateModel.date),
                 const Spacer(),
-                Text(courseModel.source),
+                Text(certificateModel.source),
               ],
             ),
           )

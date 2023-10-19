@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../animated_widgets/onHoverCertificatesText.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -42,7 +41,6 @@ class MyDrawer extends StatelessWidget {
               children: const [
                 Padding(
                   padding: EdgeInsets.only(left: 15.0),
-                  child: OnHoverCertificateText(),
                 )
               ],
             ),

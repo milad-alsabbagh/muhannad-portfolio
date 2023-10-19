@@ -3,15 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import '../animated_widgets/animated_text.dart';
 
 class CoverStack extends StatelessWidget {
   const CoverStack({super.key});
-WebsiteCubit cubit(context)=>BlocProvider.of(context);
+  WebsiteCubit cubit(context) => BlocProvider.of(context);
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<WebsiteCubit,WebsiteStates>(
-      builder:(context,state){
+    return BlocConsumer<WebsiteCubit, WebsiteStates>(
+      builder: (context, state) {
         return Stack(
           alignment: AlignmentDirectional.bottomEnd,
           children: [
@@ -39,7 +38,8 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
                           fontWeight: FontWeight.w300,
                           fontSize: 18,
                           backgroundColor:
-                          Color.fromARGB(189, 82, 170, 221).withOpacity(0.4),
+                              const Color.fromARGB(189, 82, 170, 221)
+                                  .withOpacity(0.4),
                           color: Colors.white),
                     ),
                     const SizedBox(
@@ -47,17 +47,10 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
                     ),
                   ],
                 ),
-                Expanded(
+                const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      AnimatedText(
-                          duration: const Duration(seconds: 1),
-                          text: 'Hello World!'),
-                      AnimatedText(
-                          duration: const Duration(seconds: 1),
-                          text: 'I am Muhannad but everyone calls me MIMO'),
-                    ],
+                    children: [],
                   ),
                 ),
               ],
@@ -68,23 +61,20 @@ WebsiteCubit cubit(context)=>BlocProvider.of(context);
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('Download My CV'),
-                     IconButton(onPressed: (){
-
-                    //   Navigator.push(context, MaterialPageRoute(builder: (context)=>PdfViews()));
-
-                    }, icon: Icon(
-                        Icons.download
-                    ))
+                    const Text('Download My CV'),
+                    IconButton(
+                        onPressed: () {
+                          //   Navigator.push(context, MaterialPageRoute(builder: (context)=>PdfViews()));
+                        },
+                        icon: const Icon(Icons.download))
                   ],
                 )
               ],
             ),
-
           ],
         );
-    },
-      listener: (context,state){},
+      },
+      listener: (context, state) {},
     );
   }
 }

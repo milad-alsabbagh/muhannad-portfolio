@@ -5,6 +5,7 @@ import 'package:muhannadwebsite/views/blog_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/images_of_life_view.dart';
 import 'package:muhannadwebsite/views/desktop_viiew.dart';
+import 'package:muhannadwebsite/views/new_blog_view.dart';
 
 import '../../../views/about_view.dart';
 import '../../shared_variables.dart';
@@ -44,8 +45,10 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
             )),
         TextButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const BlogView()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NewBlogsView()));
             },
             child: Text(
               'Blogs',
@@ -136,7 +139,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BlogView()));
+                            builder: (context) => const NewBlogsView()));
                   },
                   child: Text(
                     'Blogs',

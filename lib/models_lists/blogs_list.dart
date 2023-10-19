@@ -1,6 +1,6 @@
 import 'package:muhannadwebsite/models/blog_model.dart';
 
-List<BlogModel> blogs_list = [
+List<BlogModel> blogsList = [
   BlogModel(
       blogText:
           'dart langauge is powerfull programming language supported by google and announced in 2018 it has many good feauture that mak',

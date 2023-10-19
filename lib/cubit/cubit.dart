@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/models_lists/skill_list.dart';
+import 'package:muhannadwebsite/models_lists/skills_list.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models_lists/certificates_list.dart';
 import '../models_lists/images_of_life_list.dart';
 import '../models_lists/links_list.dart';
 
@@ -41,14 +40,6 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
     emit(ChangeSizeOnHoverState());
   }
 
-  List<bool> hoveringOnCertificates = [];
-  void changeHoveringOnCertificateText(
-      {required bool hover, required int index}) {
-    hoveringOnCertificates[index] = hover;
-    print(hoveringOnCertificates);
-    emit(ChangeHoveringOnCertificateTextState());
-  }
-
   List<bool> hoveringOnSkills = [];
   void changeHoveringOnSkillText({required bool hover, required int index}) {
     hoveringOnSkills[index] = hover;
@@ -57,9 +48,6 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
   }
 
   void fullBollsLists() {
-    for (int i = 0; i <= certificatesList.length - 1; i++) {
-      hoveringOnCertificates.add(false);
-    }
     for (int i = 0; i <= linksList.length - 1; i++) {
       reSize.add(false);
     }

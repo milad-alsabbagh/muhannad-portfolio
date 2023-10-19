@@ -8,6 +8,7 @@ import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/material_theme.dart';
 import 'package:muhannadwebsite/views/about_view.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
+import 'package:muhannadwebsite/views/new_blog_view.dart';
 
 void main() async {
   WidgetsFlutterBinding;
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
                   ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
               themeMode:
                   cubit(context).isDark ? ThemeMode.dark : ThemeMode.light,
-              home: const AboutView(),
+              home: const Home(),
             ),
           );
         },

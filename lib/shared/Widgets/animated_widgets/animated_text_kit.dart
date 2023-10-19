@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:muhannadwebsite/models_lists/animated_text_list.dart';
+import 'package:muhannadwebsite/models_lists/animated_texts_list.dart';
 import '../styles/text_styles.dart';
 
 class AnimatedTextKitWidget extends StatelessWidget {
@@ -11,7 +11,7 @@ class AnimatedTextKitWidget extends StatelessWidget {
     return AnimatedTextKit(
         repeatForever: true,
         pause: const Duration(seconds: 3),
-        animatedTexts: animatedTextList
+        animatedTexts: animatedTextsList
             .map((e) => TyperAnimatedText(e, textStyle: animatedTextKitStyle))
             .toList());
   }

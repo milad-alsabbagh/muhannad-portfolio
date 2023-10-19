@@ -1,4 +1,4 @@
-const List<String> features = [
+const List<String> featuresList = [
   'team work',
   'leaderShip',
   'hard working',
