@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../models/skill_model.dart';
 
 class SkillContaienr extends StatelessWidget {
-  SkillContaienr({super.key, required this.skillModel});
+  const SkillContaienr({super.key, required this.skillModel});
   final SkillModel skillModel;
   @override
   Widget build(BuildContext context) {

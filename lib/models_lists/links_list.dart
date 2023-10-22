@@ -19,6 +19,12 @@ List<LinkModel> linksList = [
       index: ++currentIndex,
       uri: Uri.parse('https://wa.me/19086560111'),
       imagePath: 'assets/images/whatsapplogo.png'),
+  LinkModel(
+    index: ++currentIndex,
+    uri: Uri.parse(
+        'https://drive.google.com/file/d/1PfD6dm_IeUxsrVULJxXioO5RGsNKM7Wj/view?usp=sharing'),
+    imagePath: 'assets/images/cv.png',
+  ),
 ];
 //make sure the index in any object is ++currentIndex
 //here you can add links to your website that appear in home page
