@@ -1,2 +1,5 @@
 const String aboutMe =
-    'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions hav';
+    '''Highly motivated and ambitious computer engineer with a diverse background in project management and leadership.
+Bringing over 2 years of experience in software development, with analytic and stratigic insight to dissect complex tasks.
+Profoundly skilled with communication, crafting, delivering new ideas and orchestrating the work environment.
+Proven track of embracing challenges and seeking inspiration from various sources.''';
