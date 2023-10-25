@@ -73,30 +73,37 @@ class AboutView extends StatelessWidget {
                         'Skills',
                         style: GoogleFonts.sirinStencil(fontSize: 32),
                       ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.black.withOpacity(0.3)),
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15.0),
-                                child: Center(
-                                  child: Wrap(
-                                    children: List.generate(skillsList.length,
-                                        (index) {
-                                      return SkillContaienr(
-                                          skillModel: skillsList[index]);
-                                    }),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                      // Center(
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      //     child: Container(
+                      //       width: double.infinity,
+                      //       decoration: BoxDecoration(
+                      //           borderRadius: BorderRadius.circular(50),
+                      //           color: Colors.black.withOpacity(0.3)),
+                      //       child: SingleChildScrollView(
+                      //         child: Padding(
+                      //           padding:
+                      //               const EdgeInsets.symmetric(vertical: 15.0),
+                      //           child: Center(
+                      //             child: Wrap(
+                      //               children: List.generate(skillsList.length,
+                      //                   (index) {
+                      //                 return SkillContaienr(
+                      //                     skillModel: skillsList[index]);
+                      //               }),
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                      CircleAvatar(
+                        backgroundColor: Colors.black,
+                        radius: 70,
+                        child: Image(
+                          image: AssetImage(skillsList[0].skillLogoImagePath),
                         ),
                       ),
                       const SizedBox(
