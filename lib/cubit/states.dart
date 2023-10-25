@@ -15,3 +15,5 @@ class ChangeHoveringOnSkillTextState extends WebsiteStates {}
 class FullListsState extends WebsiteStates {}
 
 class ClickOnImageState extends WebsiteStates {}
+
+class HoverOnSkillAvatar extends WebsiteStates {}

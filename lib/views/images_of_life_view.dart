@@ -1,12 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/models_lists/images_of_life_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
-import 'package:muhannadwebsite/shared/constants.dart';
+
 import 'package:muhannadwebsite/shared/shared_variables.dart';
 
 import '../models_lists/links_list.dart';
@@ -28,9 +26,7 @@ class ImagesOfLife extends StatelessWidget {
             20;
     WebsiteCubit cubit(context) => BlocProvider.of(context);
     return BlocConsumer<WebsiteCubit, WebsiteStates>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: currentWidth > 600

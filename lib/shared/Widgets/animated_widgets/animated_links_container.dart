@@ -27,15 +27,15 @@ class AnimatedLinksContainer extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.blueGrey.withOpacity(0.2),
             border: Border.all(
-              color: Color(0xFF6750A4).withOpacity(0.5),
+              color: const Color(0xFF6750A4).withOpacity(0.5),
               width: 2,
             ),
             borderRadius: BorderRadius.circular(30),
             // color: Colors.blueAccent.withOpacity(0.2)
           ),
           padding: direction == Direction.horizontal
-              ? EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 10)
-              : EdgeInsets.only(left: 10, top: 20, bottom: 10, right: 10),
+              ? const EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 10)
+              : const EdgeInsets.only(left: 10, top: 20, bottom: 10, right: 10),
           child: direction == Direction.horizontal
               ? LinksRow(links: link)
               : LinksColumn(links: link),
@@ -66,7 +66,7 @@ class LinksRow extends StatelessWidget {
                           imagePath: e.imagePath,
                           index: e.index,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                       ],
@@ -98,7 +98,7 @@ class LinksColumn extends StatelessWidget {
                           imagePath: e.imagePath,
                           index: e.index,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                       ],
@@ -115,8 +115,9 @@ class ScalingLinksImage extends StatelessWidget {
   final Uri uri;
   final String imagePath;
   final bool isHome;
-  ScalingLinksImage(
-      {required this.isHome,
+  const ScalingLinksImage(
+      {super.key,
+      required this.isHome,
       required this.index,
       required this.imagePath,
       required this.uri});
@@ -136,16 +137,16 @@ class ScalingLinksImage extends StatelessWidget {
                 cubit(context).launchInBrowser(uri);
               },
               child: AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   decoration: BoxDecoration(
                     borderRadius: isHome == true
                         ? BorderRadius.circular(40)
                         : BorderRadius.circular(5),
                     color: isHome == true
-                        ? Color(0xFF6750A4).withOpacity(0.4)
+                        ? const Color(0xFF6750A4).withOpacity(0.4)
                         : Colors.white.withOpacity(0.2),
                   ),
-                  padding: EdgeInsets.all(7),
+                  padding: const EdgeInsets.all(7),
                   width: 34,
                   height: 34,
                   transform: Matrix4.identity()

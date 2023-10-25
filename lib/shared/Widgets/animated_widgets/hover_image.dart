@@ -56,13 +56,13 @@ class HoverImage extends StatelessWidget {
                               topLeft: Radius.circular(20),
                               bottomRight: Radius.circular(10))),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10),
                         child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.location_on,
                                 color: Colors.grey,
                               ),

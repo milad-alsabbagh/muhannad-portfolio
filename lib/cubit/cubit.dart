@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/models_lists/skills_list.dart';
+import 'package:muhannadwebsite/models_lists/hover_skills_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models_lists/images_of_life_list.dart';
 import '../models_lists/links_list.dart';
@@ -23,11 +23,11 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
   }
 
   List<bool> hoveringOnImagesOfLife = [];
+  List<bool> hoverOnSkillCircleAvatar = [];
 
   void changeOnHoverImagesOflifeVisibility(
       {required bool hover, required int index}) {
     hoveringOnImagesOfLife[index] = hover;
-    print(hoveringOnImagesOfLife);
     emit(ChangeHoverVisibilityState());
   }
 
@@ -36,26 +36,18 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
   void changeSizeOnHover({required bool hover, required int index}) {
     reSize[index] = hover;
     rowContainer = hover;
-    print(reSize);
     emit(ChangeSizeOnHoverState());
-  }
-
-  List<bool> hoveringOnSkills = [];
-  void changeHoveringOnSkillText({required bool hover, required int index}) {
-    hoveringOnSkills[index] = hover;
-    print(hoveringOnSkills);
-    emit(ChangeHoveringOnSkillTextState());
   }
 
   void fullBollsLists() {
     for (int i = 0; i <= linksList.length - 1; i++) {
       reSize.add(false);
     }
-    for (int i = 0; i <= skillsList.length - 1; i++) {
-      hoveringOnSkills.add(false);
-    }
     for (int i = 0; i <= imagesOfLifeList.length - 1; i++) {
       hoveringOnImagesOfLife.add(false);
+    }
+    for (int i = 0; i < hoverSkillsList.length; i++) {
+      hoverOnSkillCircleAvatar.add(false);
     }
     emit(FullListsState());
   }
@@ -64,6 +56,11 @@ class WebsiteCubit extends Cubit<WebsiteStates> {
   void clickOnImage(int imageIndex) {
     clickedImageIndex = imageIndex;
     emit(ClickOnImageState());
+  }
+
+  void hoverOnSkillAvatar(int index, bool isHover) {
+    hoverOnSkillCircleAvatar[index] = isHover;
+    emit(HoverOnSkillAvatar());
   }
 // late PdfController pdfController;
 //   Future<void> loadPDF(BuildContext context) async {

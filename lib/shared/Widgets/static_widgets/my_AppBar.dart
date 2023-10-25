@@ -1,11 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:muhannadwebsite/views/blog_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/images_of_life_view.dart';
-import 'package:muhannadwebsite/views/desktop_viiew.dart';
-import 'package:muhannadwebsite/views/new_blog_view.dart';
+import 'package:muhannadwebsite/views/desktop_view.dart';
+import 'package:muhannadwebsite/views/blogs_view.dart';
 
 import '../../../views/about_view.dart';
 import '../../shared_variables.dart';
@@ -45,10 +46,8 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
             )),
         TextButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const NewBlogsView()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const BlogsView()));
             },
             child: Text(
               'Blogs',
@@ -82,11 +81,9 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
   }
 
   @override
-  // TODO: implement child
   Widget get child => throw UnimplementedError();
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(60);
 }
 
@@ -139,7 +136,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NewBlogsView()));
+                            builder: (context) => const BlogsView()));
                   },
                   child: Text(
                     'Blogs',
@@ -181,10 +178,8 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
   }
 
   @override
-  // TODO: implement child
   Widget get child => throw UnimplementedError();
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(60);
 }

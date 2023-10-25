@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:muhannadwebsite/models_lists/images_of_life_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
-import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_drawer.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 
 import '../shared/Widgets/animated_widgets/hover_image.dart';
@@ -17,7 +16,6 @@ class MobileView extends StatelessWidget {
       appBar: const DesktopAppBar(
         isHome: true,
       ),
-      drawer: const MyDrawer(),
       body: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,

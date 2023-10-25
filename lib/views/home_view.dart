@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 
-import 'desktop_viiew.dart';
+import 'desktop_view.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

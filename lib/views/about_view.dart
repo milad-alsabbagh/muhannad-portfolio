@@ -1,44 +1,28 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/models_lists/about.dart';
-import 'package:muhannadwebsite/models_lists/certificates_list.dart';
-import 'package:muhannadwebsite/models_lists/features_list.dart';
-import 'package:muhannadwebsite/models_lists/key_skills.dart';
+import 'package:muhannadwebsite/models_lists/hover_skills_list.dart';
 import 'package:muhannadwebsite/models_lists/links_list.dart';
-import 'package:muhannadwebsite/models_lists/skills_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
-import 'package:muhannadwebsite/shared/Widgets/static_widgets/certificate_container.dart';
+import 'package:muhannadwebsite/shared/Widgets/animated_widgets/hover_skill_container.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
-import 'package:muhannadwebsite/shared/Widgets/static_widgets/skill_container.dart';
-import 'package:muhannadwebsite/shared/constants.dart';
 import 'package:muhannadwebsite/shared/shared_variables.dart';
 
-import '../models_lists/images_of_life_list.dart';
-import '../shared/Widgets/animated_widgets/hover_image.dart';
 import '../shared/Widgets/static_widgets/about_top.dart';
-import '../shared/Widgets/styles/text_styles.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var skillController = ExpansionTileController();
-    var courseController = ExpansionTileController();
-    WebsiteCubit cubit(context) => BlocProvider.of(context);
     return BlocConsumer<WebsiteCubit, WebsiteStates>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         final currentWidth = MediaQuery.of(context).size.width;
-        final height = MediaQuery.of(context).size.height;
         return Scaffold(
           appBar: currentWidth > 600
               ? const DesktopAppBar(
@@ -67,81 +51,37 @@ class AboutView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 7.0,
+                        height: 12.0,
                       ),
                       Text(
-                        'Skills',
+                        '<Skills & Certificate />',
                         style: GoogleFonts.sirinStencil(fontSize: 32),
-                      ),
-                      // Center(
-                      //   child: Padding(
-                      //     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      //     child: Container(
-                      //       width: double.infinity,
-                      //       decoration: BoxDecoration(
-                      //           borderRadius: BorderRadius.circular(50),
-                      //           color: Colors.black.withOpacity(0.3)),
-                      //       child: SingleChildScrollView(
-                      //         child: Padding(
-                      //           padding:
-                      //               const EdgeInsets.symmetric(vertical: 15.0),
-                      //           child: Center(
-                      //             child: Wrap(
-                      //               children: List.generate(skillsList.length,
-                      //                   (index) {
-                      //                 return SkillContaienr(
-                      //                     skillModel: skillsList[index]);
-                      //               }),
-                      //             ),
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      CircleAvatar(
-                        backgroundColor: Colors.black,
-                        radius: 70,
-                        child: Image(
-                          image: AssetImage(skillsList[0].skillLogoImagePath),
-                        ),
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 10,
                       ),
-                      Text(
-                        'Certificates',
-                        style: GoogleFonts.sirinStencil(fontSize: 32),
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 20.0,
-                            left: 8.0,
-                            right: 8.0,
-                          ),
-                          child: Center(
-                            child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    color: Colors.black.withOpacity(0.3)),
-                                child: SingleChildScrollView(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 15.0),
-                                    child: Center(
-                                      child: Wrap(
-                                        children: List.generate(
-                                            certificatesList.length, (index) {
-                                          return CertificateContainer(
-                                              certificateModel:
-                                                  certificatesList[index]);
-                                        }),
-                                      ),
-                                    ),
+                      Center(
+                          child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.black.withOpacity(0.3)),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 15.0),
+                                  child: Center(
+                                    child: Wrap(
+                                        alignment: WrapAlignment.center,
+                                        runSpacing: 30,
+                                        spacing: 15,
+                                        children: hoverSkillsList
+                                            .map((e) => HoverSkillContainer(
+                                                hoverSkill: e))
+                                            .toList()),
                                   ),
-                                )),
-                          )),
+                                ),
+                              ))),
                     ]),
                   ),
                 ),
@@ -152,8 +92,7 @@ class AboutView extends StatelessWidget {
                     ((40 +
                             ((linksList.length - 1) * 10) +
                             (linksList.length * 34)) /
-                        2) -
-                    24,
+                        2),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child:

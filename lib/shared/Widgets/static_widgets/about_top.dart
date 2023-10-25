@@ -57,8 +57,8 @@ class AboutTop extends StatelessWidget {
                     (e) => Padding(
                       padding: const EdgeInsets.only(right: 10.0, bottom: 10),
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                             border: Border.all(color: niceGreen),
                             borderRadius: BorderRadius.circular(40)),

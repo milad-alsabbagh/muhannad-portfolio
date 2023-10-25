@@ -3,8 +3,10 @@ class BlogModel {
   final String title;
   final String blogText;
   final String date;
+  final Uri uri;
   BlogModel(
-      {required this.blogText,
+      {required this.uri,
+      required this.blogText,
       required this.date,
       required this.imagePath,
       required this.title});
