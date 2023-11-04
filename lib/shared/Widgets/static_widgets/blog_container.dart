@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/constants.dart';
+import 'package:muhannadwebsite/views/blog_details.dart';
 
 import '../../../models/blog_model.dart';
 
@@ -19,7 +20,13 @@ class BlogContainer extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: InkWell(
             onTap: () {
-              cubit(context).launchInBrowser(blogModel.uri);
+              // cubit(context).launchInBrowser(blogModel.uri);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BlogDetails(
+                            markDownData: blogModel.markDownData,
+                          )));
             },
             child: Container(
               decoration: BoxDecoration(

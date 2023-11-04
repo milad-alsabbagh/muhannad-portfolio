@@ -19,7 +19,11 @@ then add new object inside links list in models/link_model.dart file
 
 8)add images to images of lif's images page in lib/models_lists/images_of_life_list.dart file
 
-9)stay tuned we are not finished yet
+9)to add markDown file to show blog details first you add new file in markDown_files folder with file extension dart inside 
+this file add variable as String and make it equal to markDown syntax then in blogs_list add the name of String variable 
+to markDownData variable in the object  
+
+10)stay tuned we are not finished yet
 
 /*very important note : in any object that need index variable let the value as it is
 ++currentIndex otherwise the app may crush or make unexpected behavior*/

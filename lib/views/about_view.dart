@@ -54,7 +54,7 @@ class AboutView extends StatelessWidget {
                         height: 12.0,
                       ),
                       Text(
-                        '<Skills & Certificate />',
+                        '<Skills & Certificates />',
                         style: GoogleFonts.sirinStencil(fontSize: 32),
                       ),
                       const SizedBox(

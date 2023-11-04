@@ -1,8 +1,11 @@
+import 'package:muhannadwebsite/markDown_files.dart/dockerMD.dart';
+import 'package:muhannadwebsite/markDown_files.dart/markdownex.dart';
 import 'package:muhannadwebsite/models/blog_model.dart';
 
 String viewMode = '&rm=minimal';
 List<BlogModel> blogsList = [
   BlogModel(
+      markDownData: markDown,
       uri: Uri.parse(
           'https://docs.google.com/presentation/d/1wZZR6gW65X9RJCPkh57ama4qpnfAKGUC/edit?usp=sharing&ouid=101406648586825012377&rtpof=true&sd=true$viewMode'),
       blogText:
@@ -11,6 +14,7 @@ List<BlogModel> blogsList = [
       imagePath: 'assets/images/cover.jpeg',
       title: 'somethimg about dart '),
   BlogModel(
+      markDownData: markDown,
       uri: Uri.parse(
           'https://docs.google.com/presentation/d/1wZZR6gW65X9RJCPkh57ama4qpnfAKGUC/edit?usp=sharing&ouid=101406648586825012377&rtpof=true&sd=true$viewMode'),
       blogText:
@@ -19,6 +23,7 @@ List<BlogModel> blogsList = [
       imagePath: 'assets/images/cover.jpeg',
       title: 'somethimg about dart '),
   BlogModel(
+      markDownData: dockerMD,
       uri: Uri.parse(
           'https://docs.google.com/presentation/d/1wZZR6gW65X9RJCPkh57ama4qpnfAKGUC/edit?usp=sharing&ouid=101406648586825012377&rtpof=true&sd=true$viewMode'),
       blogText:

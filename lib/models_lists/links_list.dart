@@ -23,7 +23,7 @@ List<LinkModel> linksList = [
     index: ++currentIndex,
     uri: Uri.parse(
         'https://drive.google.com/file/d/1PfD6dm_IeUxsrVULJxXioO5RGsNKM7Wj/view?usp=sharing'),
-    imagePath: 'assets/images/cv.png',
+    imagePath: 'assets/images/cvLogo.png',
   ),
 ];
 //make sure the index in any object is ++currentIndex
