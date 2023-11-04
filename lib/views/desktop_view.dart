@@ -7,7 +7,7 @@ import 'package:lottie/lottie.dart';
 
 class DesktopView extends StatelessWidget {
   const DesktopView({super.key});
-
+  static String id = 'desktopView';
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;

@@ -12,6 +12,7 @@ import '../shared/shared_variables.dart';
 
 class BlogsView extends StatelessWidget {
   const BlogsView({super.key});
+  static String id = 'blogsView';
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;

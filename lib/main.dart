@@ -6,8 +6,14 @@ import 'package:flutter_portal/flutter_portal.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/material_theme.dart';
+import 'package:muhannadwebsite/views/about_view.dart';
 import 'package:muhannadwebsite/views/blog_details.dart';
+import 'package:muhannadwebsite/views/blogs_view.dart';
+import 'package:muhannadwebsite/views/desktop_view.dart';
+import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
+import 'package:muhannadwebsite/views/images_of_life_view.dart';
+import 'package:muhannadwebsite/views/mobile_view.dart';
 
 void main() async {
   WidgetsFlutterBinding;
@@ -29,6 +35,15 @@ class MyApp extends StatelessWidget {
           WebsiteCubit cubit(context) => BlocProvider.of(context);
           return Portal(
             child: MaterialApp(
+              routes: {
+                Home.id: (context) => const Home(),
+                AboutView.id: (context) => const AboutView(),
+                BlogsView.id: (context) => const BlogsView(),
+                DesktopView.id: (context) => const DesktopView(),
+                Faq.id: (context) => const Faq(),
+                ImagesOfLife.id: (context) => const ImagesOfLife(),
+                MobileView.id: (context) => const MobileView(),
+              },
               debugShowCheckedModeBanner: false,
               theme:
                   ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
@@ -36,7 +51,7 @@ class MyApp extends StatelessWidget {
                   ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
               themeMode:
                   cubit(context).isDark ? ThemeMode.dark : ThemeMode.light,
-              home: const Home(),
+              initialRoute: Home.id,
             ),
           );
         },

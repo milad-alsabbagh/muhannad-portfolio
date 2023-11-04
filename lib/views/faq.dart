@@ -4,7 +4,7 @@ import 'package:muhannadwebsite/shared/shared_variables.dart';
 
 class Faq extends StatelessWidget {
   const Faq({super.key});
-
+  static String id = 'faqView';
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;

@@ -7,6 +7,7 @@ import 'desktop_view.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
+  static String id = 'homeView';
   @override
   Widget build(BuildContext context) {
     // final currentWidth = MediaQuery.of(context).size.width;

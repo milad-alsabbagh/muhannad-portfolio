@@ -8,7 +8,7 @@ import '../shared/Widgets/animated_widgets/hover_image.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({super.key});
-
+  static String id = 'mobileView';
   @override
   Widget build(BuildContext context) {
     // double size = MediaQuery.of(context).size.width;

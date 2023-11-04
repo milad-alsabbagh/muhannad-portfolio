@@ -13,7 +13,7 @@ import '../shared/Widgets/animated_widgets/hover_image.dart';
 
 class ImagesOfLife extends StatelessWidget {
   const ImagesOfLife({super.key});
-
+  static String id = 'imagesOfLifeView';
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;

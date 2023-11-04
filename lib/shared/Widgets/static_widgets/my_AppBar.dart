@@ -24,8 +24,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
       elevation: 0.0,
       title: InkWell(
         onTap: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const DesktopView()));
+          Navigator.pushNamed(context, DesktopView.id);
         },
         child: AutoSizeText(
           'Muhannad Alsabbagh',
@@ -36,8 +35,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
       actions: [
         TextButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AboutView()));
+              Navigator.pushNamed(context, AboutView.id);
             },
             child: Text(
               'About',
@@ -46,8 +44,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
             )),
         TextButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const BlogsView()));
+              Navigator.pushNamed(context, BlogsView.id);
             },
             child: Text(
               'Blogs',
@@ -56,8 +53,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
             )),
         TextButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const Faq()));
+            Navigator.pushNamed(context, Faq.id);
           },
           child: Text(
             'FAQ',
@@ -66,8 +62,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSize {
         ),
         TextButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ImagesOfLife()));
+            Navigator.pushNamed(context, ImagesOfLife.id);
           },
           child: Text(
             'Life\'s Image',
@@ -103,10 +98,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
           Center(
             child: InkWell(
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DesktopView()));
+                Navigator.pushNamed(context, DesktopView.id);
               },
               child: AutoSizeText(
                 'Muhannad Alsabbagh',
@@ -120,10 +112,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
             children: [
               TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AboutView()));
+                    Navigator.pushNamed(context, AboutView.id);
                   },
                   child: Text(
                     'About',
@@ -133,10 +122,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                   )),
               TextButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BlogsView()));
+                    Navigator.pushNamed(context, BlogsView.id);
                   },
                   child: Text(
                     'Blogs',
@@ -146,8 +132,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
                   )),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Faq()));
+                  Navigator.pushNamed(context, Faq.id);
                 },
                 child: Text(
                   'FAQ',
@@ -158,10 +143,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSize {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ImagesOfLife()));
+                  Navigator.pushNamed(context, ImagesOfLife.id);
                 },
                 child: Text(
                   'Life\'s Image',

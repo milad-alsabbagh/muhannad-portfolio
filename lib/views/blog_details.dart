@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:muhannadwebsite/markDown_files.dart/markdownex.dart';
 import 'package:muhannadwebsite/models_lists/links_list.dart';
 import 'package:muhannadwebsite/shared/Widgets/animated_widgets/animated_links_container.dart';
 import 'package:muhannadwebsite/shared/Widgets/static_widgets/my_AppBar.dart';
@@ -10,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 class BlogDetails extends StatelessWidget {
   const BlogDetails({super.key, required this.markDownData});
   final String markDownData;
+  static String id = 'blogDetail';
   @override
   Widget build(BuildContext context) {
     double currentWidth = MediaQuery.of(context).size.width;

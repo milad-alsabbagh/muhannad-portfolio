@@ -16,6 +16,7 @@ import '../shared/Widgets/static_widgets/about_top.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
+  static String id = 'about';
 
   @override
   Widget build(BuildContext context) {
