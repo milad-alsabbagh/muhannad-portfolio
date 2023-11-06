@@ -43,10 +43,13 @@ dependencies:
   gauge_indicator: ^0.4.3
   google_fonts: ^6.1.0
   lottie: ^2.6.0
+  markdown: ^7.1.1
   shared_preferences: ^2.2.1
   syncfusion_flutter_pdfviewer: ^23.1.39
   url_launcher: ^6.1.14
+  webview_flutter: ^4.4.2
   widget_and_text_animator: ^1.1.5
+  webview_flutter_web: ^0.2.2+3
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -20,13 +20,7 @@ class BlogContainer extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: InkWell(
             onTap: () {
-              // cubit(context).launchInBrowser(blogModel.uri);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => BlogDetails(
-                            markDownData: blogModel.markDownData,
-                          )));
+              cubit(context).launchInBrowser(blogModel.uri);
             },
             child: Container(
               decoration: BoxDecoration(
