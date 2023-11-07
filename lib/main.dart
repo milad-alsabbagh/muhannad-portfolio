@@ -3,10 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_portal/flutter_portal.dart';
-import 'package:markdown/markdown.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
-import 'package:muhannadwebsite/markDown_files/dockerMD.dart';
 import 'package:muhannadwebsite/shared/material_theme.dart';
 import 'package:muhannadwebsite/views/about_view.dart';
 import 'package:muhannadwebsite/views/blogs_view.dart';
@@ -14,12 +12,9 @@ import 'package:muhannadwebsite/views/desktop_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
 import 'package:muhannadwebsite/views/images_of_life_view.dart';
-import 'package:muhannadwebsite/views/markdown_test.dart';
 import 'package:muhannadwebsite/views/mobile_view.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await convertImage();
   // await js.context.callMethod('require', ['pdfjs-dist/build/pdf']);
   runApp(MyApp());
 }

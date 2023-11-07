@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:muhannadwebsite/cubit/cubit.dart';
 import 'package:muhannadwebsite/cubit/states.dart';
 import 'package:muhannadwebsite/shared/constants.dart';
-import 'package:muhannadwebsite/views/blog_details.dart';
 
 import '../../../models/blog_model.dart';
 
