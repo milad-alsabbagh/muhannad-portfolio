@@ -12,7 +12,6 @@ import 'package:muhannadwebsite/views/desktop_view.dart';
 import 'package:muhannadwebsite/views/faq.dart';
 import 'package:muhannadwebsite/views/home_view.dart';
 import 'package:muhannadwebsite/views/images_of_life_view.dart';
-import 'package:muhannadwebsite/views/mobile_view.dart';
 
 void main() async {
   // await js.context.callMethod('require', ['pdfjs-dist/build/pdf']);
@@ -40,7 +39,6 @@ class MyApp extends StatelessWidget {
                 DesktopView.id: (context) => const DesktopView(),
                 Faq.id: (context) => const Faq(),
                 ImagesOfLife.id: (context) => const ImagesOfLife(),
-                MobileView.id: (context) => const MobileView(),
               },
               debugShowCheckedModeBanner: false,
               theme:

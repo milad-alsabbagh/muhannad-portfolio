@@ -1,11 +1,10 @@
 import 'package:muhannadwebsite/models/blog_model.dart';
 
-String viewMode = '&rm=minimal';
 List<BlogModel> blogsList = [
   BlogModel(
       uri: Uri.parse('https://milad-alsabbagh13.github.io/blogFiles/'),
       blogText:
-          'dart langauge is powerfull programming language supported by google and announced in 2018 it has many good feauture that mak',
+          'dart langauge is powerfull programming language supported by google and announced in 2018 it has many good feauture that makfeihfiehfiehfiehf iehfiheifheifheihfiehfiehfiheifhefhieihfefefef',
       date: 'june 8 2018',
       imagePath: 'assets/images/cover.jpeg',
       title: 'somethimg about dart '),
